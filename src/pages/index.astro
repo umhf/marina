@@ -1,15 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import { Picture } from "@astrojs/image/components";
-
+/* import { Picture } from "@astrojs/image/components"; */
+import { BackgroundPicture } from "astro-imagetools/components";
 import hero from "../images/background.jpeg";
 ---
 
 <Layout title="Welcome to Astro.">
-  <div>
-    <Picture src={hero} widths={[350, 750, 1280]} sizes="(max-width: 800px) 100vw, 800px, 1200px" alt="" />
-  </div>
+  <BackgroundPicture
+    src="/src/images/background.jpeg"
+    artDirectives={[
+      {
+        src: "/src/images/background.jpeg",
+        media: "(orientation: potrait)",
+      },
+    ]}
+  >
+    <div>hallo</div>
+  </BackgroundPicture>
   <main>
     <h1>Welcome to <span class="text-gradient">Astro</span></h1>
     <p class="instructions">
