@@ -1,0 +1,20 @@
+---
+import { BackgroundPicture } from "astro-imagetools/components";
+---
+
+<BackgroundPicture
+  src="/src/images/background.jpeg"
+  breakpoints={{ count: 12, minWidth: 320, maxWidth: 3840 }}
+  sizes={(breakpoints) => {
+    const maxWidth = breakpoints[breakpoints.length - 1];
+    return `(min-width: ${maxWidth}px) ${maxWidth}px, 100vw`;
+  }}
+  artDirectives={[
+    {
+      src: "/src/images/background.jpeg",
+      media: "(orientation: potrait)",
+    },
+  ]}
+>
+  <slot />
+</BackgroundPicture>
