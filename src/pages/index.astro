@@ -3,11 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 /* import { Picture } from "@astrojs/image/components"; */
 import BackgroundImage from "../components/BackgroundImage.astro";
+import "@fontsource/lora";
 ---
 
 <Layout title="Welcome to Astro.">
   <header></header>
-  <BackgroundImage><div class="text-3xl min-h-screen">Servus du Oarschlinger</div></BackgroundImage>
+  <BackgroundImage>
+    <div class="container mx-auto min-h-screen flex flex-col justify-end p-4">
+      <h2 class="text-5xl font-heading leading-tight text-gray-300 w-1/2 mb-24">Momente für die Ewigkeit</h2>
+    </div>
+  </BackgroundImage>
   <main></main>
   <footer></footer>
 </Layout>
+<!-- Beispiel https://safetyalliancebc.ca/makeitsafe/?ref=builtwithtailwind.com -->
