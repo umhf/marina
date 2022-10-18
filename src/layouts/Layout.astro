@@ -1,7 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 const { title } = Astro.props;
-const canonicalURL = new URL("/", Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
 ---
 
 <!DOCTYPE html>
