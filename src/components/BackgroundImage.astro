@@ -9,6 +9,11 @@ import { BackgroundPicture } from "astro-imagetools/components";
     const maxWidth = breakpoints[breakpoints.length - 1];
     return `(min-width: ${maxWidth}px) ${maxWidth}px, 100vw`;
   }}
+  attributes={{
+    link: {
+      fetchpriority: "high",
+    },
+  }}
   artDirectives={[
     {
       src: "/src/images/background.jpeg",
