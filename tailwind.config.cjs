@@ -3,7 +3,9 @@ const colors = require('tailwindcss/colors')
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {zIndex: {
+			'lowest': '-1',
+		  }},
 		fontFamily: {
 			'heading': ['Lora', 'ui-sans-serif'],
 		},
@@ -13,8 +15,6 @@ module.exports = {
 			black: colors.black,
 			white: colors.white,
 			gray: colors.gray,
-			emerald: colors.emerald,
-			indigo: colors.indigo,
 			yellow: colors.yellow,
 		  },
 	},
