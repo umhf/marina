@@ -4,6 +4,9 @@ import Card from "../components/Card.astro";
 /* import { Picture } from "@astrojs/image/components"; */
 import BackgroundImage from "../components/BackgroundImage.astro";
 import "@fontsource/lora";
+import "@fontsource/inspiration";
+
+const darkColor = "black";
 ---
 
 <Layout title="Marina Schmid Tier- und Pferdefotografie">
@@ -19,21 +22,20 @@ import "@fontsource/lora";
       </div>
     </div>
   </BackgroundImage>
-  <main class="bg-gray-100">
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis repudiandae, reiciendis hic inventore nam
-      temporibus quos laboriosam, suscipit sequi, et iusto! Consequatur, sapiente recusandae tempora et consequuntur
-      sequi facere! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis earum tempore voluptas nam, fuga
-      asperiores aut fugiat explicabo vel dicta, alias cumque maiores quia incidunt voluptate. Natus dolorem voluptatum
-      itaque?
-    </div>
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis repudiandae, reiciendis hic inventore nam
-      temporibus quos laboriosam, suscipit sequi, et iusto! Consequatur, sapiente recusandae tempora et consequuntur
-      sequi facere! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis earum tempore voluptas nam, fuga
-      asperiores aut fugiat explicabo vel dicta, alias cumque maiores quia incidunt voluptate. Natus dolorem voluptatum
-      itaque?
-    </div>
+  <main>
+    <section class="bg-orange-200">
+      <h2 class={"font-section text-4xl text-center border-b border-black"}>Über mich</h2>
+      <!-- Farben dynamisch machen! https://stackoverflow.com/questions/69687530/dynamically-build-classnames-in-tailwindcss  -->
+      <div class="">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis repudiandae, reiciendis hic inventore nam
+          temporibus quos laboriosam, suscipit sequi, et iusto! Consequatur, sapiente recusandae tempora et consequuntur
+          sequi facere! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis earum tempore voluptas nam, fuga
+          asperiores aut fugiat explicabo vel dicta, alias cumque maiores quia incidunt voluptate. Natus dolorem
+          voluptatum itaque?
+        </p>
+      </div>
+    </section>
     <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis repudiandae, reiciendis hic inventore nam
       temporibus quos laboriosam, suscipit sequi, et iusto! Consequatur, sapiente recusandae tempora et consequuntur

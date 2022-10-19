@@ -8,6 +8,7 @@ module.exports = {
 		  }},
 		fontFamily: {
 			'heading': ['Lora', 'ui-sans-serif'],
+			'section': ['Inspiration', 'ui-sans']
 		},
 		colors: {
 			transparent: 'transparent',
@@ -15,7 +16,7 @@ module.exports = {
 			black: colors.black,
 			white: colors.white,
 			gray: colors.gray,
-			yellow: colors.yellow,
+			orange: colors.orange
 		  },
 	},
 	plugins: [],
