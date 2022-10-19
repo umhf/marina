@@ -3,7 +3,7 @@ import { BackgroundPicture } from "astro-imagetools/components";
 ---
 
 <BackgroundPicture
-  src="/src/images/background.jpeg"
+  src="/src/images/background.jpg"
   breakpoints={{ count: 12, minWidth: 320, maxWidth: 3840 }}
   sizes={(breakpoints) => {
     const maxWidth = breakpoints[breakpoints.length - 1];
@@ -16,8 +16,9 @@ import { BackgroundPicture } from "astro-imagetools/components";
   }}
   artDirectives={[
     {
-      src: "/src/images/background.jpeg",
-      media: "(orientation: potrait)",
+      src: "/src/images/background_portrait.jpg",
+      media: "(max-aspect-ratio: 2/3)",
+      breakpoints: { count: 8, minWidth: 300, maxWidth: 1400 },
     },
   ]}
 >
