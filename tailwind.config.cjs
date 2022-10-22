@@ -27,7 +27,9 @@ module.exports = {
 		  
 		}),
 		addComponents({
-		  ".colored": {backgroundColor: theme('colors.orange.300')}
+			".colored": { backgroundColor: theme('colors.orange.300') },
+			'.section': { padding: theme('padding.4') }
+			
 		})
 	  })],
 }

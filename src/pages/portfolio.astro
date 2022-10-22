@@ -12,24 +12,26 @@ const gapSize = "4";
 ---
 
 <Layout title="Portfolio | Marina Schmid Tier- und Pferdefotografie">
-  <h1 class="text-center">Portfolio</h1>
-  <div class={`columns-1 sm:columns-2 gap-${gapSize}`}>
-    <!-- TODO: ALT TAG -->
-    {
-      imageFiles.map((imagefile) => {
-        return (
-          <div class={`mb-${gapSize} border border-black p-1`}>
-            <Picture
-              src={`/${portfolioPath}/${imagefile}`}
-              alt={imagefile}
-              breakpoints={{ count: 12, minWidth: 320, maxWidth: 1920 }}
-              sizes="(min-width: 640px) 50vw, 100vw"
-            />
-          </div>
-        );
-      })
-    }
-  </div>
+  <section class="section">
+    <h1 class="text-center">Portfolio</h1>
+    <div class={`columns-1 sm:columns-2 gap-${gapSize}`}>
+      <!-- TODO: ALT TAG -->
+      {
+        imageFiles.map((imagefile) => {
+          return (
+            <div class={`mb-${gapSize} border border-black p-1`}>
+              <Picture
+                src={`/${portfolioPath}/${imagefile}`}
+                alt={imagefile}
+                breakpoints={{ count: 12, minWidth: 320, maxWidth: 1920 }}
+                sizes="(min-width: 640px) 50vw, 100vw"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
 </Layout>
 
 <!-- <div class="relative mb-4">
