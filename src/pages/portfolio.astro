@@ -1,4 +1,6 @@
 ---
+import "@fontsource/inspiration";
+
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro-imagetools/components";
 import fs from "fs";
@@ -10,6 +12,7 @@ const gapSize = "4";
 ---
 
 <Layout title="Portfolio | Marina Schmid Tier- und Pferdefotografie">
+  <h1 class="text-center">Portfolio</h1>
   <div class={`columns-1 sm:columns-2 gap-${gapSize}`}>
     <!-- TODO: ALT TAG -->
     {
