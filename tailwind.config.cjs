@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
+const plugin = require('tailwindcss/plugin')
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -19,5 +20,14 @@ module.exports = {
 			orange: colors.orange
 		  },
 	},
-	plugins: [],
+	plugins: [plugin(function({ addBase, theme, addComponents }) {
+		addBase({
+		  'h1': { fontSize: theme('fontSize.4xl') },
+		  'h2': { fontSize: theme('fontSize.4xl') },
+		  
+		}),
+		addComponents({
+		  ".colored": {backgroundColor: theme('colors.orange.300')}
+		})
+	  })],
 }
