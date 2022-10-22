@@ -22,7 +22,7 @@ module.exports = {
 	},
 	plugins: [plugin(function({ addBase, theme, addComponents }) {
 		addBase({
-		  'h1': { fontSize: theme('fontSize.4xl') },
+		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.section") },
 		  'h2': { fontSize: theme('fontSize.4xl') },
 		  
 		}),
