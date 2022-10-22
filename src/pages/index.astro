@@ -6,7 +6,7 @@ import BackgroundImage from "../components/BackgroundImage.astro";
 import "@fontsource/lora";
 import "@fontsource/inspiration";
 
-const darkColor = "black";
+const darkColor = "gray-900";
 ---
 
 <Layout title="Marina Schmid Tier- und Pferdefotografie">
@@ -18,14 +18,13 @@ const darkColor = "black";
       <div
         class="flex flex-col justify-end h-96 md:items-end mx-auto md:space-x-24 space-y-12 md:space-y-0 md:flex-row"
       >
-        <h2 class="text-5xl font-heading leading-tight text-black">Momente für die Ewigkeit</h2>
+        <h1 class="text-5xl font-heading leading-tight text-black">Momente für die Ewigkeit</h1>
       </div>
     </div>
   </BackgroundImage>
   <main>
-    <section class="bg-orange-200">
-      <h2 class={"font-section text-4xl text-center border-b border-black"}>Über mich</h2>
-      <!-- Farben dynamisch machen! https://stackoverflow.com/questions/69687530/dynamically-build-classnames-in-tailwindcss  -->
+    <section class="section colored">
+      <h2 class="font-section text-center">Über mich</h2>
       <div class="">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis repudiandae, reiciendis hic inventore nam
