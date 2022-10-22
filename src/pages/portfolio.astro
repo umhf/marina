@@ -6,14 +6,24 @@ const portfolioPath = "src/images/portfolio";
 const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
   return /.png|.jpg|.jpeg/.test(file);
 });
-console.log(imageFiles);
+const gapSize = "4";
 ---
 
 <Layout title="Portfolio | Marina Schmid Tier- und Pferdefotografie">
-  <div class="columns-2 md:columns-3">
+  <div class={`columns-1 sm:columns-2 gap-${gapSize}`}>
+    <!-- TODO: ALT TAG -->
     {
       imageFiles.map((imagefile) => {
-        return <Picture src={`/${portfolioPath}/${imagefile}`} alt="" />;
+        return (
+          <div class={`mb-${gapSize} border border-black p-1`}>
+            <Picture
+              src={`/${portfolioPath}/${imagefile}`}
+              alt={imagefile}
+              breakpoints={{ count: 12, minWidth: 320, maxWidth: 1920 }}
+              sizes="(min-width: 640px) 50vw, 100vw"
+            />
+          </div>
+        );
       })
     }
   </div>
