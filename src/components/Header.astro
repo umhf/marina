@@ -4,7 +4,7 @@ import Hamburger from "./Hamburger.astro";
 
 <header class="header fixed top-0 z-10 w-full">
   <nav>
-    <div class="hidden w-full absolute top-8 bg-white" id="navbar-default">
+    <div class="w-full absolute bg-white drop-shadow-md" id="mobile-menu">
       <ul class="flex flex-col p-4 mt-4">
         <li>
           <a
@@ -43,7 +43,10 @@ import Hamburger from "./Hamburger.astro";
         </li>
       </ul>
     </div>
-    <div class="container flex flex-wrap justify-between items-center mx-auto bg-white drop-shadow-md max-h-12">
+    <div
+      class="container flex flex-wrap justify-between items-center mx-auto bg-white drop-shadow-md max-h-12 relative z-10"
+      id="navbar"
+    >
       <a href="https://flowbite.com/" class="flex items-center">
         <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
         <span class="self-center text-xl font-semibold whitespace-nowrap">Flowbite</span>
@@ -53,24 +56,19 @@ import Hamburger from "./Hamburger.astro";
   </nav>
 </header>
 <script>
-  const btn = document.querySelector("#navbar-button");
-  const menu = document.querySelector("#navbar-default");
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-    menu.classList.toggle("animation");
+  document.querySelector("#navbar-button").addEventListener("click", () => {
+    document.querySelector("#mobile-menu").classList.toggle("open");
+    document.querySelector("#navbar").classList.toggle("drop-shadow-md");
   });
 </script>
 <style>
-  @keyframes example {
-    from {
-      top: -15rem;
-    }
-    to {
-      top: 2rem;
-    }
+  #mobile-menu {
+    transition: top 400ms ease;
   }
-  .animation {
-    animation-name: example;
-    animation-duration: 1000ms;
+  #mobile-menu:not(.open) {
+    top: -15rem;
+  }
+  #mobile-menu.open {
+    top: 3rem;
   }
 </style>
