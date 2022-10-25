@@ -1,0 +1,21 @@
+---
+const { menuItems } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname.slice(1);
+---
+
+<div
+  class="w-full absolute bg-white drop-shadow-md top-12 -translate-y-full -z-10 transition-all duration-300"
+  id="menu"
+>
+  <ul class="grid grid-cols-1 text-center divide-y p-4 mt-4 opacity-0 transition-all duration-1000 divide-y">
+    {
+      menuItems.map((menuItem) => (
+        <li class="py-3">
+          <a class={pathname === menuItem.toLowerCase() ? "active" : ""} href={`/${menuItem.toLowerCase()}`}>
+            {menuItem}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
