@@ -21,12 +21,9 @@ module.exports = {
 		addBase({
 		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.section") },
 		  'h2': { fontSize: theme('fontSize.4xl') },
-		  
 		}),
 		addComponents({
-			".colored": { backgroundColor: theme('colors.orange.300') },
-			'.section': { padding: theme('padding.4') }
-			
+			".bg-primary": { backgroundColor: theme('colors.white.50') },			
 		})
 	  })],
 }
