@@ -8,7 +8,14 @@ import { Picture } from "astro-imagetools/components";
   <nav class="grid grid-cols-4 items-center bg-white-50 max-h-12 relative" id="navbar">
     <div class="col-start-2 col-span-2 m-auto max-h-10">
       <a href="/">
-        <Picture src="/src/images/marina_schmid_logo.png" alt="Marina Schmid Logo" width={140} />
+        <Picture
+          src="/src/images/marina_schmid_logo.png"
+          alt="Marina Schmid Logo"
+          width={140}
+          breakpoints={{ count: 3, minWidth: 140, maxWidth: 420 }}
+          sizes="140px"
+          layout="fullWidth"
+        />
       </a>
     </div>
     <Hamburger />
