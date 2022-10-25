@@ -8,22 +8,27 @@ module.exports = {
 			'lowest': '-1',
 		  }},
 		fontFamily: {
-			'heading': ['Lora', 'ui-sans-serif'],
-			'section': ['Inspiration', 'ui-sans']
+			'serif': ['Lora', 'ui-sans-serif'],
+			'heading': ['Inspiration'],
+			'normal': ['Inter']
 		},
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',
 			white: colors.gray,
+			colored: colors.green
 		  },
 	},
 	plugins: [plugin(function({ addBase, theme, addComponents }) {
 		addBase({
-		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.section") },
-		  'h2': { fontSize: theme('fontSize.4xl') },
+		  'h2': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading"), marginBottom: theme("margin.6") },
+		  'h1': { fontSize: theme('fontSize.4xl') },
+		  "html": { fontFamily: theme("fontFamily.normal") }, 
+		  "p": {marginBottom: theme("margin.1")}
 		}),
 		addComponents({
-			".bg-primary": { backgroundColor: theme('colors.white.50') },			
+			".bg-light": { backgroundColor: theme('colors.white.50') },
+			".section": {"margin-top": theme("margin.8")}
 		})
 	  })],
 }
