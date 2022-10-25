@@ -8,18 +8,17 @@ const portfolioPath = "src/images/portfolio";
 const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
   return /.png|.jpg|.jpeg/.test(file);
 });
-const gapSize = "4";
 ---
 
 <Layout title="Portfolio | Marina Schmid Tier- und Pferdefotografie">
   <section class="section">
     <h1 class="text-center">Portfolio</h1>
-    <div class={`columns-1 sm:columns-2 gap-${gapSize}`}>
+    <div class="columns-1 sm:columns-2 gap-4">
       <!-- TODO: ALT TAG -->
       {
         imageFiles.map((imagefile) => {
           return (
-            <div class={`mb-${gapSize} border border-black p-1`}>
+            <div class="mb-4 border border-white-900 p-1">
               <Picture
                 src={`/${portfolioPath}/${imagefile}`}
                 alt={imagefile}
