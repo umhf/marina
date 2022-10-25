@@ -1,6 +1,8 @@
 ---
+import instagram from "../images/instagram.svg";
 const { menuItems } = Astro.props;
 const pathname = new URL(Astro.request.url).pathname.slice(1);
+console.log(instagram);
 ---
 
 <div
@@ -12,13 +14,13 @@ const pathname = new URL(Astro.request.url).pathname.slice(1);
   >
     {
       menuItems.map((menuItem) => (
-        <li class="py-3">
+        <li>
           <a
-            class={
+            class={`${
               pathname === menuItem.toLowerCase() || (pathname === "" && menuItem.toLowerCase() === "home")
                 ? "active"
                 : ""
-            }
+            } p-3.5 block`}
             href={menuItem.toLowerCase() === "home" ? "/" : `/${menuItem.toLowerCase()}`}
           >
             {menuItem}
@@ -26,5 +28,10 @@ const pathname = new URL(Astro.request.url).pathname.slice(1);
         </li>
       ))
     }
+    <li>
+      <a href="https://www.instagram.com/marinullu/" target="_BLANK" class="block p-3.5">
+        <img src={instagram} alt="Instagram Logo" class="w-8 m-auto" />
+      </a>
+    </li>
   </ul>
 </div>
