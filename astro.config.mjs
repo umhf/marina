@@ -26,5 +26,6 @@ export default defineConfig({
       }
     }
   },
-  integrations: [astroImageTools, tailwind(), critters(), purgecss(), compress()]
+  integrations: [astroImageTools, tailwind(), critters(), purgecss()]
 });
+/* , compress() */
