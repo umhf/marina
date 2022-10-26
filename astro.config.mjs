@@ -8,6 +8,23 @@ import tailwind from "@astrojs/tailwind";
 import compress from "astro-compress";
 
 // https://astro.build/config
+import critters from "astro-critters";
+
+// https://astro.build/config
+import purgecss from "astro-purgecss";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [astroImageTools, tailwind(), compress()]
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'entry.[hash].js',
+          chunkFileNames: 'chunks/chunk.[hash].js',
+          assetFileNames: 'assets/asset.[hash][extname]'
+        }
+      }
+    }
+  },
+  integrations: [astroImageTools, tailwind(), critters(), purgecss(), compress()]
 });
