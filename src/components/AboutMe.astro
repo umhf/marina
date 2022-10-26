@@ -1,4 +1,6 @@
 ---
+import { BackgroundPicture } from "astro-imagetools/components";
+
 import ButtonPrimary from "./ButtonPrimary.astro";
 ---
 
@@ -8,15 +10,32 @@ import ButtonPrimary from "./ButtonPrimary.astro";
     <img src="https://picsum.photos/400/400?random=1" />
   </div>
   <div class="">
-    <p class="text-center text-2xl mb-1 font-serif">Hi, ich bin Marina</p>
+    <p class="text-center text-2xl mb-1 font-serif">Hi,</p>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis repudiandae, reiciendis hic inventore nam
-      temporibus quos laboriosam, suscipit sequi, et iusto! Consequatur, sapiente recusandae tempora et consequuntur
-      sequi facere! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis earum tempore voluptas nam, fuga
-      asperiores aut fugiat explicabo vel dicta, alias cumque maiores quia incidunt voluptate. Natus dolorem voluptatum
-      itaque?
+      ich heiße Marina und bin eine professionelle Pferde- und Haustierfotografin. Als kreative Person, die die Natur
+      liebt, liebe ich es, bleibende Erinnerungen durch Fotografie zu schaffen. Fotografie und Pferde sind meine wahre
+      Leidenschaft. Schließlich habe ich diese Leidenschaft zu meinem Beruf gemacht - dies möchte ich mit meinen Bildern
+      zum Ausdruck bringen. Ich liebe es, bleibende Erinnerungen zu schaffen, die schönsten Momente festzuhalten.
+      Momente für die Ewigkeit.
     </p>
-
-    <ButtonPrimary text="Mein Portfolio" icon="mdi:arrow-right-thick" link="/portfolio" />
+  </div>
+  <div class="border border-white-900 p-1 mt-8">
+    <BackgroundPicture
+      src="/src/images/passion_background.png"
+      breakpoints={{ count: 6, minWidth: 320, maxWidth: 1920 }}
+      sizes="100vw"
+    >
+      <div class="pt-96">
+        <div class="bg-white-100/50 p-2">
+          <h2 class="text-center">A strong passion</h2>
+          <p class="mb-4">
+            A strong and powerful passion is not just part of who I am, it defines me. And that's what sets me apart -
+            my deep, genuine, undying love for what I do as a pet photographer. The visuals speak for themselves, look
+            at what you get with my photo shooting service:
+          </p>
+          <ButtonPrimary text="Mein Portfolio" icon="mdi:arrow-right-thick" link="/portfolio" />
+        </div>
+      </div>
+    </BackgroundPicture>
   </div>
 </section>
