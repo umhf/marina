@@ -5,6 +5,9 @@ import { astroImageTools } from "astro-imagetools";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
+import compress from "astro-compress";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [astroImageTools, tailwind()]
+  integrations: [astroImageTools, tailwind(), compress()]
 });
