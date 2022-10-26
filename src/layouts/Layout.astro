@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import "@fontsource/lora";
 import "@fontsource/inspiration";
 import "@fontsource/inter";
+import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
 ---
@@ -26,5 +27,6 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
   <body class="mt-12 px-4 bg-white-50">
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
