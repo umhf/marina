@@ -4,7 +4,7 @@ import { BackgroundPicture } from "astro-imagetools/components";
 
 <BackgroundPicture
   src="/src/images/background.jpg"
-  breakpoints={{ count: 12, minWidth: 320, maxWidth: 3840 }}
+  breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
   sizes={(breakpoints) => {
     const maxWidth = breakpoints[breakpoints.length - 1];
     return `(min-width: ${maxWidth}px) ${maxWidth}px, 100vw`;
@@ -18,7 +18,7 @@ import { BackgroundPicture } from "astro-imagetools/components";
     {
       src: "/src/images/background_portrait.jpg",
       media: "(max-aspect-ratio: 2/3)",
-      breakpoints: { count: 8, minWidth: 300, maxWidth: 1400 },
+      breakpoints: { count: 6, minWidth: 300, maxWidth: 1400 },
     },
   ]}
 >
