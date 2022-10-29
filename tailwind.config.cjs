@@ -23,7 +23,7 @@ module.exports = {
 		addBase({
 		  'h2': { marginBottom: theme("margin.2"), marginTop: theme("margin.4") },
 		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading")},
-		  "html": { fontFamily: theme("fontFamily.serif") }, 
+		  "html": { fontFamily: theme("fontFamily.serif"), color: theme("colors.white.800") }, 
 		  "p": {marginBottom: theme("margin.1")}
 		}),
 		addComponents({
