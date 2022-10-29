@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
+const headingClasses = {
+	fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading")
+}
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {zIndex: {
 			'lowest': '-1',
-		  }
-	},
+		  }},
 		fontFamily: {
 			'serif': ['Lora', 'ui-sans-serif'],
 			'heading': ['Inspiration'],
@@ -21,8 +23,8 @@ module.exports = {
 	},
 	plugins: [plugin(function({ addBase, theme, addComponents }) {
 		addBase({
-		  'h2': { marginBottom: theme("margin.2"), marginTop: theme("margin.4") },
-		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading")},
+		  'h2': { headingClasses, marginBottom: theme("margin.2"), marginTop: theme("margin.4") },
+		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading") },
 		  "html": { fontFamily: theme("fontFamily.serif") }, 
 		  "p": {marginBottom: theme("margin.1")}
 		}),

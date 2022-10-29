@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import smartphone from "../images/icons/smartphone.svg";
+import photographer from "../images/icons/photographer.svg";
+import picture from "../images/icons/picture.svg";
+import "@fontsource/lora/700.css";
+
+const fotoShootingContent = [
+  {
+    icon: smartphone,
+    headline: "Vor dem Shooting",
+    text: "Wir besprechen alles, was wichtig ist: dein Outfit, die Tageszeit, die Umgebung und Locations. Bei einem Pferdeshooting darfst du mir gerne Fotos und Videos von den Koppeln und Wunschlocations schicken.",
+  },
+  {
+    icon: photographer,
+    headline: "Am Shootingtag",
+    text: "Wir besichtigen zunächst gemeinsam die Location und lernen uns kennen. So kann ich auch in Ruhe dein Pferd oder Hund begrüßen und die erste Aufregung verfällt. Eine helfende Hand ist vor allem bei Pferden im Freien wichtig, den neugirierigen Blick in die gewünschte Richtung zu lenken.",
+  },
+  {
+    icon: picture,
+    headline: "Nach dem Shooting",
+    text: "Du erhälst einen Link zu deiner persönlichen Onlinegalerie. Hier kannst du dir in Ruhe deine Lieblingsbilder aussuchen, die anschließend von mir liebevoll und aufwendig bearbeitet werden.",
+  },
+];
+---
+
+<Layout title="Informationen | Marina Schmid Tier- und Pferdefotografie">
+  <section id="shooting-infos" class="mt-16">
+    <h1 class="text-center">Das Fotoshooting</h1>
+    <h2>In jedem Fotoshooting enthalten sind</h2>
+    <ul>
+      <li>eine Online-Galerie mit den besten Bildern für die Auswahl deiner Lieblingsbilder</li><li>
+        liebevoll und aufwändig bearbeitete Bilder
+      </li>
+      <li>deine Bilder als hochauflösende Dateien für den Druck und das Web</li>
+    </ul>
+    <div class="mt-8">
+      {
+        fotoShootingContent.map((content, i, row) => (
+          <div class="grid grid-flow-col gap-4 items-start">
+            <div class="grid grid-rows-[auto_1fr] h-full">
+              <div class="rounded-full bg-colored-300 w-16 h-16 flex">
+                <img src={content.icon} alt="Smartphone Icon" class="m-auto" />
+              </div>
+              <div class="grid grid-cols-2 divide-x">
+                <div />
+                <div />
+              </div>
+            </div>
+            <div class={i + 1 !== row.length ? "mb-8" : ""}>
+              <h2 class="m-0 font-bold">{content.headline}</h2>
+              <p>{content.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <section id="preise" class="mt-8">
+    <h1 class="text-center">Preise</h1>
+  </section>
+</Layout>
