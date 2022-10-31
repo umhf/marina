@@ -17,7 +17,7 @@ const pathname = new URL(Astro.request.url).pathname.slice(1);
           <a
             class={`${
               pathname === menuItem.toLowerCase() || (pathname === "" && menuItem.toLowerCase() === "home")
-                ? "active"
+                ? "bg-colored-200"
                 : ""
             } p-3.5 block`}
             href={menuItem.toLowerCase() === "home" ? "/" : `/${menuItem.toLowerCase()}`}

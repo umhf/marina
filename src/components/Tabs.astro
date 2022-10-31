@@ -1,0 +1,54 @@
+---
+const { headings } = Astro.props;
+---
+
+<div class="tabs">
+  <ul class="tabs-header flex">
+    {
+      headings.map((heading) => (
+        <li class="flex-auto text-center w-full block uppercase border-x-0 border-t-0 border-b-2 px-6 py-3 my-2 border-transparent">
+          {heading}
+        </li>
+      ))
+    }
+  </ul>
+  <ul class="tabs-content">
+    <slot />
+  </ul>
+</div>
+<script>
+  function createTabs(element) {
+    const header = element.querySelector(".tabs-header");
+    const content = element.querySelector(".tabs-content");
+    const tab_headers = [...header.children];
+    const tab_contents = [...content.children];
+    tab_contents.forEach((x) => x.classList.add("hidden"));
+    let current_tab_index = -1;
+
+    function setTab(index) {
+      console.log(current_tab_index);
+      if (current_tab_index > -1) {
+        tab_headers[current_tab_index].classList.remove("text-colored-900");
+        tab_headers[current_tab_index].classList.add("border-transparent");
+        tab_contents[current_tab_index].classList.add("hidden");
+        tab_contents[current_tab_index].classList.remove("flex", "flex-col");
+      }
+      tab_headers[index].classList.add("text-colored-900");
+      tab_headers[index].classList.remove("border-transparent");
+      tab_contents[index].classList.add("flex", "flex-col");
+      tab_contents[index].classList.remove("hidden");
+      current_tab_index = index;
+    }
+
+    let default_tab_index = tab_headers.findIndex((x) => {
+      return [...x.classList].indexOf("default-tab") > -1;
+    });
+
+    default_tab_index = default_tab_index === -1 ? 0 : default_tab_index;
+    setTab(default_tab_index);
+    tab_headers.forEach((x, i) => (x.onclick = () => setTab(i)));
+  }
+
+  // Run
+  [...document.querySelectorAll(".tabs")].forEach((x) => createTabs(x));
+</script>
