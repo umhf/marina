@@ -1,7 +1,7 @@
 ---
 import instagram from "../images/icons/instagram.svg";
 const { menuItems } = Astro.props;
-const pathname = new URL(Astro.request.url).pathname.slice(1);
+const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", "");
 ---
 
 <div
