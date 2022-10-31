@@ -16,7 +16,7 @@ module.exports = {
 			transparent: 'transparent',
 			current: 'currentColor',
 			white: colors.gray,
-			colored: colors.green
+			colored: colors.violet
 		  },
 	},
 	plugins: [plugin(function({ addBase, theme, addComponents }) {
