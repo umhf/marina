@@ -4,7 +4,10 @@ import Header from "../components/Header.astro";
 import "@fontsource/lora";
 import "@fontsource/inspiration";
 import Footer from "../components/Footer.astro";
-const { title } = Astro.props;
+const {
+  title,
+  description = "Tier- und Pferdefotografie aus Leidenschaft. Ich liebe Tiere, meine Kamera und die Natur. Deine Momente für die Ewigkeit.",
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
 ---
 
@@ -12,10 +15,10 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-
+    <!-- TODO descriptions reinmachen -->
     <SEO
       title={title}
-      description="Tier- und Pferdefotografie aus Leidenschaft. Ich liebe Tiere, meine Kamera und die Natur. Ihre Momente für die Ewigkeit."
+      description={description}
       canonical={canonicalURL.href}
       extend={{
         link: [{ rel: "icon", href: "/favicon.svg" }],
