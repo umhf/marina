@@ -2,11 +2,12 @@
 const { headings } = Astro.props;
 ---
 
+<!-- TODO: Background color Tabs -->
 <div class="tabs">
   <ul class="tabs-header flex">
     {
       headings.map((heading) => (
-        <li class="flex-auto text-center w-full block uppercase border-x-0 border-t-0 border-b-2 px-6 py-3 my-2 border-transparent">
+        <li class="flex-auto text-center w-full block uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 rounded-t">
           {heading}
         </li>
       ))
@@ -26,14 +27,13 @@ const { headings } = Astro.props;
     let current_tab_index = -1;
 
     function setTab(index) {
-      console.log(current_tab_index);
       if (current_tab_index > -1) {
-        tab_headers[current_tab_index].classList.remove("text-colored-900");
+        tab_headers[current_tab_index].classList.remove("text-colored-900", "bg-white-100");
         tab_headers[current_tab_index].classList.add("border-transparent");
         tab_contents[current_tab_index].classList.add("hidden");
         tab_contents[current_tab_index].classList.remove("flex", "flex-col");
       }
-      tab_headers[index].classList.add("text-colored-900");
+      tab_headers[index].classList.add("text-colored-900", "bg-white-100");
       tab_headers[index].classList.remove("border-transparent");
       tab_contents[index].classList.add("flex", "flex-col");
       tab_contents[index].classList.remove("hidden");

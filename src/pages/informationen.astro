@@ -62,7 +62,7 @@ const fotoShootingContent = [
               <div
                 class={`${!content.dark ? "bg-colored-50" : "bg-colored-100"} ${
                   content.animal
-                } tab-content text-colored-900 text-center rounded drop-shadow-xl overflow-hidden mb-8`}
+                } tab-content text-colored-900 text-center rounded overflow-hidden mb-8`}
               >
                 <div
                   class={`${!content.dark ? "text-colored-900 bg-colored-200" : "text-colored-50 bg-colored-900"} p-4`}
@@ -83,32 +83,6 @@ const fotoShootingContent = [
             ))}
           </li>
         ))
-
-        /*           <li>
-            {animal.map((content) => (
-              <div
-                class={`${!content.dark ? "bg-colored-50" : "bg-colored-100"} ${content.animal} ${
-                  content.animal === "dog" && "hidden"
-                } tab-content text-colored-900 text-center rounded drop-shadow-xl overflow-hidden mb-8`}
-              >
-                <div
-                  class={`${!content.dark ? "text-colored-900 bg-colored-200" : "text-colored-50 bg-colored-900"} p-4`}
-                >
-                  <h2 class="text-xl m-0">{content.headline}</h2>
-                  <small class="block">{content.subHeadline}</small>
-                </div>
-                <div class="text-4xl m-4">
-                  {content.price}
-                  <sup class="-ml-2">00</sup> EUR
-                </div>
-                <ul class="grid grid-cols-1 justify-center divide-y divide-colored-700/30 px-4">
-                  {content.features.map((feature) => (
-                    <li class="p-4">{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </li> */
       }
     </Tabs>
   </section>
