@@ -19,7 +19,7 @@ module.exports = {
 			colored: colors.violet
 		  },
 	},
-	plugins: [plugin(function({ addBase, theme, addComponents }) {
+	plugins: [require('@tailwindcss/forms'),plugin(function({ addBase, theme, addComponents }) {
 		addBase({
 		  'h2': { marginBottom: theme("margin.2"), marginTop: theme("margin.4") },
 		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading")},
