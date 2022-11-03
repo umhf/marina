@@ -5,11 +5,11 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
 ---
 
 <div
-  class="w-full absolute bg-light drop-shadow-md top-12 -translate-y-full -z-10 transition-all duration-300"
+  class="w-full absolute md:relative bg-white-50 md:bg-transparent drop-shadow-md top-12 -translate-y-full md:translate-y-0 -z-10 transition-all duration-300"
   id="menu"
 >
   <ul
-    class="grid grid-cols-1 text-center divide-y divide-white-200 p-4 mt-4 opacity-0 transition-all duration-1000 divide-y"
+    class="grid grid-cols-1 text-center divide-y divide-white-200 p-4 mt-4 opacity-0 md:opacity-100 transition-all duration-1000 divide-y"
   >
     {
       menuItems.map((menuItem) => (
