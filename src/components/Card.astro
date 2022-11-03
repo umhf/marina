@@ -1,0 +1,24 @@
+---
+import BackgroundPicture from "./BackgroundImage.astro";
+import ButtonPrimary from "./ButtonPrimary.astro";
+const { src, headline, text, ctaText } = Astro.props;
+---
+
+<div class="text-colored-900 bg-colored-50 p-2 mt-8">
+  <!--   <BackgroundPicture src={src} breakpoints={{ count: 6, minWidth: 320, maxWidth: 1920 }} sizes="100vw">
+    <div class="pt-96">
+      <div class="bg-white-100/50 p-2">
+        <h2 class="text-xl">{headline}</h2>
+        <p class="mb-4">
+          {text}
+        </p>
+        <ButtonPrimary text={ctaText} icon="mdi:arrow-right-thin" link="/portfolio" />
+      </div>
+    </div>
+  </BackgroundPicture> -->
+  <h2 class="text-xl">{headline}</h2>
+  <p class="mb-4">
+    {text}
+  </p>
+  <ButtonPrimary text={ctaText} icon="mdi:arrow-right-thin" link="/portfolio" />
+</div>
