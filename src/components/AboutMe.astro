@@ -1,12 +1,12 @@
 ---
-import { BackgroundPicture } from "astro-imagetools/components";
-
-import ButtonPrimary from "./ButtonPrimary.astro";
+import Card from "./Card.astro";
+import { cards } from "../data/cards";
 ---
 
 <section class="section">
   <h1 class="text-center">Über mich</h1>
   <div class="mb-6 border border-white-900 p-1">
+    <!-- TODO: asdf -->
     <img src="https://picsum.photos/400/400?random=1" />
   </div>
   <div class="">
@@ -19,23 +19,5 @@ import ButtonPrimary from "./ButtonPrimary.astro";
       Momente für die Ewigkeit.
     </p>
   </div>
-  <div class="border border-white-900 p-1 mt-8">
-    <BackgroundPicture
-      src="/src/images/passion_background.png"
-      breakpoints={{ count: 6, minWidth: 320, maxWidth: 1920 }}
-      sizes="100vw"
-    >
-      <div class="pt-96">
-        <div class="bg-white-100/50 p-2">
-          <h2 class="text-xl">A strong passion</h2>
-          <p class="mb-4">
-            A strong and powerful passion is not just part of who I am, it defines me. And that's what sets me apart -
-            my deep, genuine, undying love for what I do as a pet photographer. The visuals speak for themselves, look
-            at what you get with my photo shooting service:
-          </p>
-          <ButtonPrimary text="Mein Portfolio" icon="mdi:arrow-right-thin" link="/portfolio" />
-        </div>
-      </div>
-    </BackgroundPicture>
-  </div>
+  {cards.map((card) => <Card src={card.src} headline={card.headline} text={card.text} ctaText={card.ctaText} />)}
 </section>
