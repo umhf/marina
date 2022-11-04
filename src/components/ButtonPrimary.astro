@@ -1,10 +1,11 @@
 ---
-const { text, link, icon = false } = Astro.props;
+const { text, link } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
 <a
   href={link}
+  aria-label={text}
   class="bg-colored-900 w-full text-white-50 bold px-8 py-3 rounded text-l active:bg-colored-800 transition-all flex justify-center items-center"
-  >{text} {icon !== false && <Icon class="w-8 ml-2" name={icon} />}
+  >{text}
 </a>
