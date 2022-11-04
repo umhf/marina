@@ -2,6 +2,7 @@
 import Hamburger from "./Hamburger.astro";
 import Menu from "./Menu.astro";
 import { Picture } from "astro-imagetools/components";
+import LogoMS from "./LogoMS.astro";
 ---
 
 <header class="header border-b border-colored-200 fixed top-0 z-50 w-full -mx-4 bg-white-50">
@@ -11,14 +12,7 @@ import { Picture } from "astro-imagetools/components";
   >
     <div class="col-start-2 col-span-2 md:col-start-1 md:col-span-1 m-auto md:m-0 max-h-10">
       <a href="/">
-        <Picture
-          src="/src/images/marina_schmid_logo.png"
-          alt="Marina Schmid Logo"
-          width={140}
-          breakpoints={{ count: 3, minWidth: 140, maxWidth: 420 }}
-          sizes="140px"
-          layout="fullWidth"
-        />
+        <LogoMS />
       </a>
     </div>
     <Hamburger />
