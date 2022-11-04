@@ -5,11 +5,11 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
 ---
 
 <div
-  class="w-full absolute md:relative bg-white-50 md:bg-transparent drop-shadow-md top-12 -translate-y-full md:translate-y-0 -z-10 transition-all duration-300"
+  class="w-full absolute md:relative bg-white-50 md:bg-transparent drop-shadow-md md:drop-shadow-none top-12 md:top-0 -translate-y-full md:translate-y-0 -z-10 md:z-10 transition-all duration-300"
   id="menu"
 >
   <ul
-    class="grid grid-cols-1 text-center divide-y divide-white-200 p-4 mt-4 opacity-0 md:opacity-100 transition-all duration-1000 divide-y"
+    class="grid grid-cols-1 md:flex md:justify-end md:items-center text-center divide-y md:divide-y-0 divide-white-200 p-4 md:py-0 mt-4 md:mt-0 opacity-0 md:opacity-100 transition-all duration-1000"
   >
     {
       menuItems.map((menuItem) => (
@@ -17,9 +17,9 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
           <a
             class={`${
               pathname === menuItem.toLowerCase() || (pathname === "" && menuItem.toLowerCase() === "home")
-                ? "bg-colored-200"
-                : ""
-            } p-3.5 block`}
+                ? "bg-colored-200 md:bg-transparent md:border-colored-700"
+                : "md:border-transparent"
+            } p-3.5 block md:py-0 md:px-4 md:border-b-2`}
             href={menuItem.toLowerCase() === "home" ? "/" : `/${menuItem.toLowerCase()}`}
           >
             {menuItem}
@@ -28,7 +28,7 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
       ))
     }
     <li>
-      <a href="https://www.instagram.com/marinullu/" target="_BLANK" class="block p-3.5">
+      <a href="https://www.instagram.com/marinullu/" target="_BLANK" class="block p-3.5 md:py-0 md:px-4">
         <img src={instagram} alt="Instagram Logo" class="w-8 m-auto" />
       </a>
     </li>

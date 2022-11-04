@@ -4,9 +4,12 @@ import Menu from "./Menu.astro";
 import { Picture } from "astro-imagetools/components";
 ---
 
-<header class="header fixed top-0 z-10 w-full -mx-4">
-  <nav class="grid grid-cols-4 md:grid-cols-2 items-center bg-white-50 max-h-12 relative" id="navbar">
-    <div class="col-start-2 col-span-2 md:col-start-1 md:col-span-1 m-auto max-h-10">
+<header class="header fixed top-0 z-50 w-full -mx-4 bg-white-50">
+  <nav
+    class="md:container mx-auto bg-white-50 grid grid-cols-4 md:flex items-center max-h-12 relative md:px-8 md:py-4"
+    id="navbar"
+  >
+    <div class="col-start-2 col-span-2 md:col-start-1 md:col-span-1 m-auto md:m-0 max-h-10">
       <a href="/">
         <Picture
           src="/src/images/marina_schmid_logo.png"
