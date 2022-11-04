@@ -1,7 +1,6 @@
 ---
 import Hamburger from "./Hamburger.astro";
 import Menu from "./Menu.astro";
-import { Picture } from "astro-imagetools/components";
 import LogoMS from "./LogoMS.astro";
 ---
 
@@ -11,7 +10,7 @@ import LogoMS from "./LogoMS.astro";
     id="navbar"
   >
     <div class="col-start-2 col-span-2 md:col-start-1 md:col-span-1 m-auto md:m-0 max-h-10">
-      <a href="/">
+      <a href="/" aria-label="Zur Startseite">
         <LogoMS />
       </a>
     </div>

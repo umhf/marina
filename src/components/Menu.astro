@@ -21,6 +21,7 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
                 : "md:border-transparent"
             } p-3.5 block md:py-0 md:px-4 md:border-b-2`}
             href={menuItem.toLowerCase() === "home" ? "/" : `/${menuItem.toLowerCase()}`}
+            aria-label={menuItem}
           >
             {menuItem}
           </a>
