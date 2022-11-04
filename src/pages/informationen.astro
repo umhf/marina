@@ -27,23 +27,27 @@ const fotoShootingContent = [
 ---
 
 <Layout title="Informationen | Marina Schmid Hunde- und Pferdefotografie">
-  <section id="shooting-infos" class="mt-24">
+  <section id="shooting-infos" class="mt-24 container mx-auto">
     <h1 class="text-center">Das Fotoshooting</h1>
 
-    <div class="mt-8">
+    <div class="mt-8 md:grid md:grid-flow-col md:gap-8">
       {
         fotoShootingContent.map((content, i, row) => (
-          <div class="grid grid-flow-col gap-4 items-start">
-            <div class="grid grid-rows-[auto_1fr] h-full">
+          <div class="grid grid-flow-col md:flex md:flex-col gap-4 items-start">
+            <div class="grid grid-rows-[auto_1fr] md:grid-cols-[auto_1fr] h-full md:h-auto md:w-full">
               <div class="rounded-full bg-colored-300 w-16 h-16 flex">
                 <img src={content.icon} alt="Smartphone Icon" class="m-auto" />
               </div>
-              <div class="grid grid-cols-2 divide-x divide-white-400">
+              <div
+                class={`${
+                  i + 1 !== row.length ? "md:-mr-8" : ""
+                } grid grid-cols-2 md:grid-rows-2 md:grid-cols-1 divide-x divide-white-400 md:divide-x-0 md:divide-y `}
+              >
                 <div />
                 <div />
               </div>
             </div>
-            <div class={i + 1 !== row.length ? "mb-8" : ""}>
+            <div class={`${i + 1 !== row.length ? "mb-8 md:mb-0" : ""}`}>
               <h2 class="m-0 text-xl">{content.headline}</h2>
               <p>{content.text}</p>
             </div>
@@ -52,22 +56,27 @@ const fotoShootingContent = [
       }
     </div>
   </section>
-  <section id="preise" class="mt-8">
+  <section id="preise" class="mt-8 container mx-auto">
     <h1 class="text-center">Preise</h1>
-    <Tabs headings={["Pferde", "Hunde"]}>
+    <Tabs
+      headings={[
+        { art: "Pferde", icon: "emojione:horse-face" },
+        { art: "Hunde", icon: "emojione:dog-face" },
+      ]}
+    >
       {
         preise.map((animal) => (
-          <li>
+          <li class="flex flex-col md:flex-row md:gap-4">
             {animal.map((content) => (
               <div
                 class={`${!content.dark ? "bg-colored-50" : "bg-colored-100"} ${
                   content.animal
-                } tab-content text-colored-900 text-center rounded overflow-hidden mb-8`}
+                } tab-content text-colored-900 text-center rounded overflow-hidden mb-8 md:w-1/3`}
               >
                 <div
                   class={`${!content.dark ? "text-colored-900 bg-colored-200" : "text-colored-50 bg-colored-900"} p-4`}
                 >
-                  <h2 class="text-xl m-0">{content.headline}</h2>
+                  <h2 class="text-xl m-0">{content.headline} </h2>
                   <small class="block">{content.subHeadline}</small>
                 </div>
                 <div class="text-4xl m-4">
@@ -85,7 +94,9 @@ const fotoShootingContent = [
         ))
       }
     </Tabs>
+    <div class="max-w-xl m-auto mt-8">
+      <ButtonPrimary text="Kontaktiere mich unverbindlich" link="/kontakt" />
+    </div>
   </section>
-  <ButtonPrimary text="Kontaktiere mich unverbindlich" link="/kontakt" />
 </Layout>
 <script></script>
