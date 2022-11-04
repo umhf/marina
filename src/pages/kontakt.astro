@@ -1,12 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon";
+import instagram from "../images/icons/instagram.svg";
 ---
 
 <Layout>
   <section class="mt-16">
     <h1 class="text-center">Kontakt</h1>
+    <p>
+      Du hast Interesse an eine meiner Leistungen oder möchtest mehr Erfahren? Schreibe mir einfach per Whatsapp,
+      Instagram, Email oder Kontaktformular.
+    </p>
+    <div class="flex justify-center space-x-8 mt-8">
+      <a href="https://wa.me/254777123456?text=Hello">
+        <Icon class="w-12" name="logos:whatsapp" />
+      </a>
+      <img src={instagram} alt="Instagram Logo" class="w-12" />
+      <Icon class="w-12" name="dashicons:email" />
+    </div>
+    <div class="text-center mt-8 text-xs md:hidden">oder</div>
 
-    <form class="w-full" method="POST" data-netlify="true" name="Contact">
+    <form class="w-full mt-8" method="POST" data-netlify="true" name="Contact">
       <div class="flex flex-wrap">
         <div class="w-full">
           <label class="block uppercase tracking-wide text-white-900 text-xs font-bold mb-2" for="name"> Name</label>
