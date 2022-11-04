@@ -19,12 +19,11 @@ import { Picture } from "astro-imagetools/components";
   </div>
   <main class="container mx-auto">
     <h1 class="text-center">Über mich</h1>
-    <div class="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center md:space-x-8">
+    <div class="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center m-auto max-w-4xl md:space-x-8">
       <div class="mb-6 border border-white-900 p-1 max-w-md sm:w-1/2">
-        <!-- TODO: asdf -->
         <Picture
           src="/src/images/marina-schmid.jpeg"
-          alt="Marina Schmid"
+          alt="Marina Schmid Portrait"
           breakpoints={{ count: 8, minWidth: 340, maxWidth: 1350 }}
           sizes="438px"
         />
@@ -38,11 +37,14 @@ import { Picture } from "astro-imagetools/components";
           meinen Bildern zum Ausdruck bringen. Ich liebe es, bleibende Erinnerungen zu schaffen, die schönsten Momente
           festzuhalten. Momente für die Ewigkeit.
         </p>
+        <div class="text-right mt-4">
+          <Picture src="/src/images/marina_signature.png" alt="Marina Schmid Logo" sizes="240px" />
+        </div>
       </div>
     </div>
 
     <div class="mt-8 flex flex-col md:flex-row md:space-x-4">
-      {cards.map((card) => <Card src={card.src} headline={card.headline} text={card.text} ctaText={card.ctaText} />)}
+      {cards.map((card) => <Card headline={card.headline} text={card.text} ctaText={card.ctaText} link={card.link} />)}
     </div>
   </main>
   <!-- TODO: ist überall <main>? -->
