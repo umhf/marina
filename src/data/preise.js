@@ -1,7 +1,7 @@
 export const preise = [
    [
             {
-                headline: "Light-Shooting",
+                headline: "Pferde Light-Shooting",
                 subHeadline: "3 Bilder",
                 price: "185",
                 features: [
@@ -14,7 +14,7 @@ export const preise = [
             },
             {
                 dark: true,
-                headline: "Basic-Shooting",
+                headline: "Pferde Basic-Shooting",
                 subHeadline: "8 Bilder",
                 price: "285",
                 features: [
@@ -26,7 +26,7 @@ export const preise = [
                 animal: "horse"
             },
             {
-                headline: "Double-Shooting",
+                headline: "Pferde Double-Shooting",
                 subHeadline: "20 Bilder",
                 price: "499",
                 features: [
@@ -41,7 +41,7 @@ export const preise = [
    ,
         [
             {
-                headline: "Light-Shooting",
+                headline: "Hunde Light-Shooting",
                 subHeadline: "3 Bilder",
                 price: "85",
                 features: [
@@ -54,7 +54,7 @@ export const preise = [
             },
             {
                 dark: true,
-                headline: "Basic-Shooting",
+                headline: "Hunde Basic-Shooting",
                 subHeadline: "8 Bilder",
                 price: "285",
                 features: [
@@ -66,7 +66,7 @@ export const preise = [
                 animal: "dog"
             },
             {
-                headline: "Double-Shooting",
+                headline: "Hunde Double-Shooting",
                 subHeadline: "20 Bilder",
                 price: "399",
                 features: [
