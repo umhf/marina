@@ -4,7 +4,7 @@ import { Icon } from "astro-icon";
 import instagram from "../images/icons/instagram.svg";
 ---
 
-<!-- TODO: ajax request --><!-- TODO: Lighthouse report -->
+<!-- TODO: Lighthouse report -->
 <Layout>
   <section class="mt-24 container mx-auto max-w-3xl">
     <h1 class="text-center">Kontakt</h1>
@@ -63,14 +63,50 @@ import instagram from "../images/icons/instagram.svg";
               id="message"></textarea>
           </div>
         </div>
-        <div class="">
+        <div class="send-wrapper">
           <button
             type="submit"
-            class="bg-colored-900 w-full text-white-50 bold px-8 py-3 rounded text-l active:bg-colored-800 transition-all flex justify-center items-center"
-            >Nachricht versenden
+            class="send-btn bg-colored-900 w-full text-white-50 bold px-8 py-3 rounded text-l active:bg-colored-800 transition-all flex justify-center items-center"
+            ><span>Nachricht versenden</span>
+            <div class="spinner hidden flex items-center justify-center">
+              <div class="w-6 h-6 border-b-2 border-white-50 rounded-full animate-spin"></div>
+            </div>
           </button>
+          <div class="hidden success text-center text-colored-900 text-xl">
+            Juhu. Vielen Dank für deine Nachricht.<br /> Ich melde mich umgehend zurück.
+          </div>
+          <div class="hidden error text-center text-[red] text-xl">
+            Das hat leider nicht geklappt. <br />Bitte versuche es später noch einmal.
+          </div>
         </div>
       </form>
     </div>
   </section>
 </Layout>
+<script>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const sendWrapper = document.querySelector("form .send-wrapper");
+    sendWrapper.querySelector(".send-btn span").classList.add("hidden");
+    sendWrapper.querySelector("form .spinner").classList.remove("hidden");
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+    window.setTimeout(() => {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      })
+        .then(() => {
+          sendWrapper.querySelector(".send-btn").remove();
+          sendWrapper.querySelector(".success").classList.remove("hidden");
+        })
+        .catch((error) => {
+          sendWrapper.querySelector(".send-btn").remove();
+          sendWrapper.querySelector(".error").classList.remove("hidden");
+        });
+    }, 1200);
+  };
+
+  document.querySelector("form").addEventListener("submit", handleSubmit);
+</script>
