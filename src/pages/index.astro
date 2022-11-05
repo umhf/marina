@@ -6,7 +6,7 @@ import { cards } from "../data/cards";
 import { Picture } from "astro-imagetools/components";
 ---
 
-<Layout title="Marina Schmid Hunde- und Pferdefotografie">
+<Layout title="Home">
   <div class="-mx-4 max-w-screen-2xl 2xl:mx-auto">
     <BackgroundImage>
       <div class="h-full pt-20 pb-12 px-6 bg-gradient-to-b from-transparent via-transparent to-white-900/30">
@@ -47,5 +47,4 @@ import { Picture } from "astro-imagetools/components";
       {cards.map((card) => <Card headline={card.headline} text={card.text} ctaText={card.ctaText} link={card.link} />)}
     </div>
   </main>
-  <!-- TODO: ist überall <main>? -->
 </Layout>

@@ -6,7 +6,7 @@ import "@fontsource/inspiration";
 import Footer from "../components/Footer.astro";
 const {
   title,
-  description = "Hunde- und Pferdefotografie aus Leidenschaft. Ich liebe Tiere, meine Kamera und die Natur. Deine Momente für die Ewigkeit.",
+  description = "Hunde- und Pferdefotografie aus Peiting in Oberbayern und Umgebung. Ich liebe Tiere, meine Kamera und die Natur. Deine Momente für die Ewigkeit.",
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
 ---
@@ -15,9 +15,8 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
 <html lang="de">
   <head>
     <meta charset="utf-8" />
-    <!-- TODO descriptions reinmachen -->
     <SEO
-      title={title}
+      title={`${title} | Marina Schmid Hunde- und Pferdefotografie aus Peiting`}
       description={description}
       canonical={canonicalURL.href}
       extend={{

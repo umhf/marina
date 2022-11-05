@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LegalLayout from "../layouts/LegalLayout.astro";
+import "@fontsource/lora/600.css";
 ---
 
-<Layout title="Impressum | Marina Schmid Hunde- und Pferdefotografie">
-  <LegalLayout>
-    <h1>Impressum</h1>
+<Layout title="Impressum">
+  <main id="impressum" class="mt-24 container mx-auto legal break-words">
+    <h1 class="text-center">Impressum</h1>
     <p>Angaben gemäß Informationspflicht laut § 5 Telemediengesetz (TMG).</p>
     <p>Uli Schmid und Marina Schmid GbR<br />Langwandstr. 6, <br />86971 Peiting, <br />Deutschland</p>
     <p><strong>UID-Nummer:</strong> DE346126786</p>
@@ -324,5 +324,5 @@ import LegalLayout from "../layouts/LegalLayout.astro";
         title="Datenschutz Generator von AdSimple für Deutschland">Datenschutz Generator</a
       > von AdSimple
     </p>
-  </LegalLayout>
+  </main>
 </Layout>
