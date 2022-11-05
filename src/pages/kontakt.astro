@@ -4,9 +4,8 @@ import { Icon } from "astro-icon";
 import instagram from "../images/icons/instagram.svg";
 ---
 
-<!-- TODO: Lighthouse report -->
-<Layout>
-  <section class="mt-24 container mx-auto max-w-3xl">
+<Layout title="Kontakt">
+  <main class="mt-24 container mx-auto max-w-3xl">
     <h1 class="text-center">Kontakt</h1>
     <p>
       Du hast Interesse an eine meiner Leistungen oder möchtest mehr Erfahren? Schreibe mir einfach per Whatsapp,
@@ -81,32 +80,32 @@ import instagram from "../images/icons/instagram.svg";
         </div>
       </form>
     </div>
-  </section>
-</Layout>
-<script>
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const sendWrapper = document.querySelector("form .send-wrapper");
-    sendWrapper.querySelector(".send-btn span").classList.add("hidden");
-    sendWrapper.querySelector("form .spinner").classList.remove("hidden");
-    const myForm = event.target;
-    const formData = new FormData(myForm);
-    window.setTimeout(() => {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      })
-        .then(() => {
-          sendWrapper.querySelector(".send-btn").remove();
-          sendWrapper.querySelector(".success").classList.remove("hidden");
+  </main>
+  <script>
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const sendWrapper = document.querySelector("form .send-wrapper");
+      sendWrapper.querySelector(".send-btn span").classList.add("hidden");
+      sendWrapper.querySelector("form .spinner").classList.remove("hidden");
+      const myForm = event.target;
+      const formData = new FormData(myForm);
+      window.setTimeout(() => {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData as any).toString(),
         })
-        .catch((error) => {
-          sendWrapper.querySelector(".send-btn").remove();
-          sendWrapper.querySelector(".error").classList.remove("hidden");
-        });
-    }, 1200);
-  };
+          .then(() => {
+            sendWrapper.querySelector(".send-btn").remove();
+            sendWrapper.querySelector(".success").classList.remove("hidden");
+          })
+          .catch((error) => {
+            sendWrapper.querySelector(".send-btn").remove();
+            sendWrapper.querySelector(".error").classList.remove("hidden");
+          });
+      }, 1200);
+    };
 
-  document.querySelector("form").addEventListener("submit", handleSubmit);
-</script>
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+  </script>
+</Layout>
