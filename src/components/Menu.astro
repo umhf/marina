@@ -9,7 +9,7 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
   id="menu"
 >
   <ul
-    class="grid grid-cols-1 md:flex md:justify-end md:items-center text-center divide-y md:divide-y-0 divide-white-200 p-4 md:px-0 md:py-0 mt-4 md:mt-0 opacity-0 md:opacity-100 transition-all duration-1000"
+    class="grid grid-cols-1 border-b md:border-none border-colored-200 md:flex md:justify-end md:items-center text-center divide-y md:divide-y-0 divide-white-200 p-4 md:px-0 md:py-0 mt-4 md:mt-0 opacity-0 md:opacity-100 transition-all duration-1000"
   >
     {
       menuItems.map((menuItem) => (
@@ -19,7 +19,7 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
               pathname === menuItem.toLowerCase() || (pathname === "" && menuItem.toLowerCase() === "home")
                 ? "bg-colored-200 md:bg-transparent md:border-colored-700"
                 : "md:border-transparent"
-            } p-3.5 block md:py-0 md:px-4 md:border-b-2`}
+            } p-3.5 block md:py-0 md:px-4 md:border-b-2 hover:text-colored-900 transition-colors`}
             href={menuItem.toLowerCase() === "home" ? "/" : `/${menuItem.toLowerCase()}`}
             aria-label={menuItem}
           >

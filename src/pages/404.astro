@@ -4,10 +4,10 @@ import { Picture } from "astro-imagetools/components";
 ---
 
 <!-- Überall title und description mitgeben -->
-<Layout>
-  <section id="404 Seite" class="mt-24 container mx-auto flex flex-col items-center">
+<Layout title="404 Seite">
+  <main id="404 Seite" class="mt-24 container mx-auto text-center">
     <h1>Seite nicht gefunden</h1>
-    <div class="max-w-sm mt-8">
+    <div class="max-w-sm mt-8 m-auto">
       <Picture
         src="/src/images/404.png"
         alt="Marina Schmid Portrait"
@@ -15,5 +15,5 @@ import { Picture } from "astro-imagetools/components";
         sizes="438px"
       />
     </div>
-  </section>
+  </main>
 </Layout>
