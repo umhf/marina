@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import LegalLayout from "../layouts/LegalLayout.astro";
+import "@fontsource/lora/600.css";
 ---
 
-<Layout title="Datenschutz | Marina Schmid Hunde- und Pferdefotografie">
-  <LegalLayout>
-    <h1>Datenschutzerklärung</h1>
+<Layout title="Datenschutz">
+  <main id="datenschutz" class="mt-24 container mx-auto legal break-words">
+    <h1 class="text-center">Datenschutzerklärung</h1>
     <h2 id="einleitung">Einleitung und Überblick</h2>
     <p>
       Wir haben diese Datenschutzerklärung (Fassung 25.10.2022-312262940) verfasst, um Ihnen gemäß der Vorgaben der <a
@@ -486,5 +486,5 @@ import LegalLayout from "../layouts/LegalLayout.astro";
         title="Datenschutz Generator von AdSimple für Deutschland">Datenschutz Generator</a
       > von AdSimple
     </p>
-  </LegalLayout>
+  </main>
 </Layout>

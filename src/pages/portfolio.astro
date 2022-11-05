@@ -2,24 +2,27 @@
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro-imagetools/components";
 import fs from "fs";
+import ButtonPrimary from "../components/ButtonPrimary.astro";
 const portfolioPath = "src/images/portfolio";
 const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
   return /.png|.jpg|.jpeg/.test(file);
 });
 ---
 
-<Layout title="Portfolio | Marina Schmid Hunde- und Pferdefotografie">
-  <section class="section mt-24">
+<Layout title="Portfolio">
+  <main class="container mx-auto mt-24">
     <h1 class="text-center">Portfolio</h1>
     <div class="columns-1 sm:columns-2 gap-4">
-      <!-- TODO: ALT TAG -->
       {
         imageFiles.map((imagefile) => {
           return (
             <div class="mb-4 border border-white-900 p-1">
               <Picture
                 src={`/${portfolioPath}/${imagefile}`}
-                alt={imagefile}
+                alt={`${imagefile
+                  .replace(/\d{4}-/, "")
+                  .replace(/\.\w{3}/, "")
+                  .replace("_", " ")}`}
                 breakpoints={{ count: 8, minWidth: 320, maxWidth: 1920 }}
                 sizes="(min-width: 640px) 50vw, 100vw"
               />
@@ -28,5 +31,8 @@ const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
         })
       }
     </div>
-  </section>
+    <div class="max-w-xl m-auto mt-8">
+      <ButtonPrimary text="Informationen zum Shooting und Preise" link="/informationen" />
+    </div>
+  </main>
 </Layout>
