@@ -1,26 +1,54 @@
 ---
 import { BackgroundPicture } from "astro-imagetools/components";
+import fs from "fs";
+const path = "src/images/backgrounds";
+const imageFiles = fs.readdirSync(path).filter((file) => {
+  if (!file.includes("portrait")) return /.png|.jpg|.jpeg/.test(file);
+});
 ---
 
-<BackgroundPicture
-  src="/src/images/background.jpg"
-  breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
-  sizes={(breakpoints) => {
-    const maxWidth = breakpoints[breakpoints.length - 1];
-    return `(min-width: ${maxWidth}px) ${maxWidth}px, 100vw`;
-  }}
-  attributes={{
-    link: {
-      fetchpriority: "high",
-    },
-  }}
-  artDirectives={[
-    {
-      src: "/src/images/background_portrait.jpg",
-      media: "(max-aspect-ratio: 2/3)",
-      breakpoints: { count: 6, minWidth: 300, maxWidth: 1400 },
-    },
-  ]}
->
-  <slot />
-</BackgroundPicture>
+{
+  imageFiles.map((imagefile, index) => {
+    return (
+      <div class={`bg-image transition-all duration-[3s] ${index !== 0 ? "absolute top-0 w-full opacity-0" : ""}`}>
+        <BackgroundPicture
+          src={`/${path}/${imagefile}`}
+          tag="div"
+          breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
+          sizes={(breakpoints) => {
+            const maxWidth = breakpoints[breakpoints.length - 1];
+            return `(min-width: ${maxWidth}px) ${maxWidth}px, 100vw`;
+          }}
+          attributes={{
+            link: {
+              fetchpriority: "high",
+            },
+          }}
+          artDirectives={[
+            {
+              src: `/${path}/${imagefile.replace(".", "_portrait.")}`,
+              media: "(max-aspect-ratio: 2/3)",
+              breakpoints: { count: 6, minWidth: 300, maxWidth: 1400 },
+            },
+          ]}
+        >
+          <slot />
+        </BackgroundPicture>
+      </div>
+    );
+  })
+}
+
+<script>
+  const images = document.querySelectorAll(".bg-image");
+  let max = images.length,
+    index = 0;
+
+  function change() {
+    let next = index === max - 1 ? 0 : index + 1;
+    images[index].classList.toggle("opacity-0");
+    images[next].classList.toggle("opacity-0");
+    index = next;
+  }
+  setInterval(change, 6000);
+</script>
