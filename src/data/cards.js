@@ -8,9 +8,8 @@ export const cards = [
       link: "/portfolio"
     },
     {
-      headline: "Informationen",
-      text: `A strong and powerful passion is not just part of who I am, it defines me. And that's what sets me apart -
-              my deep, genuine, undying love:`,
+      headline: "Timbo was geht",
+      text: `Preise kommen wohl raus und die Shooting Infos auf die Startseite, dann kann komplett "informatinoen weg". Stattdessen dann wohl wirklich "Stories". Also, überleg da was gscheits`,
       ctaText: "Informationen",
       link: "/informationen"
     },
