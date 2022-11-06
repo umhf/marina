@@ -16,7 +16,7 @@ module.exports = {
 			transparent: 'transparent',
 			current: 'currentColor',
 			white: colors.gray,
-			colored: colors.violet
+			colored: colors.indigo
 		  },
 	},
 	plugins: [require('@tailwindcss/forms'),plugin(function({ addBase, theme, addComponents }) {

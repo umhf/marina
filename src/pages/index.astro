@@ -7,13 +7,16 @@ import { Picture } from "astro-imagetools/components";
 ---
 
 <Layout title="Home">
-  <div class="-mx-4 max-w-screen-2xl 2xl:mx-auto">
+  <div class="-mx-4 max-w-screen-2xl 2xl:mx-auto relative">
+    <div class="absolute bottom-8 mx-4 md:mx-8 z-50">
+      <h1 class="text-base text-xl lg:text-2xl text-white-50 font-serif m-0">Marina Schmid Fotografie</h1>
+      <h2 class="text-5xl lg:text-7xl font-serif leading-tight text-white-50 mt-0.5 shadow-white">
+        Momente für die Ewigkeit
+      </h2>
+    </div>
     <BackgroundImage>
-      <div class="h-full pt-20 pb-12 px-6 bg-gradient-to-b from-transparent via-transparent to-white-900/30">
-        <div class="container mx-auto flex flex-col justify-end h-96 min-h-[70vh]">
-          <h1 class="text-base text-xl text-white-50 font-serif m-0">Marina Schmid Fotografie</h1>
-          <h2 class="text-5xl font-serif leading-tight text-white-50 mt-0.5 shadow-white">Momente für die Ewigkeit</h2>
-        </div>
+      <div class="h-full pt-20 pb-12 px-4 bg-gradient-to-b from-transparent via-transparent to-white-900/50">
+        <div class="container mx-auto flex flex-col justify-end h-96 min-h-[70vh]"></div>
       </div>
     </BackgroundImage>
   </div>
@@ -31,11 +34,11 @@ import { Picture } from "astro-imagetools/components";
       <div class="sm:flex-1 sm:max-w-[50%]">
         <p class="text-center text-2xl mb-1 font-serif">Hi,</p>
         <p class="lg:text-lg">
-          ich heiße Marina und bin eine professionelle Pferde- und Hundefotografin. Als kreative Person, die die Natur
-          liebt, liebe ich es, bleibende Erinnerungen durch Fotografie zu schaffen. Fotografie und Pferde sind meine
-          wahre Leidenschaft. Schließlich habe ich diese Leidenschaft zu meinem Beruf gemacht - dies möchte ich mit
-          meinen Bildern zum Ausdruck bringen. Ich liebe es, bleibende Erinnerungen zu schaffen, die schönsten Momente
-          festzuhalten. Momente für die Ewigkeit.
+          ich heiße Marina und bin eine professionelle Paar- und Familien- sowie Pferde- und Hundefotografin. Als
+          kreative Person, die die Natur liebt, fotografiere ich ausschließlich in der Natur. Fotografie mit Menschen
+          und Tiere sind meine wahre Leidenschaft. Schließlich habe ich diese Leidenschaft zu meinem Beruf gemacht –
+          dies möchte ich mit meinen Bildern zum Ausdruck bringen. Ich liebe ich es, bleibende Erinnerungen durch
+          Fotografie zu schaffen, die schönsten Momente festzuhalten. Momente für die Ewigkeit.
         </p>
         <div class="text-right mt-4">
           <Picture src="/src/images/marina_signature.png" alt="Marina Schmid Logo" sizes="240px" />
