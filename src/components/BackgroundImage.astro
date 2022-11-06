@@ -10,7 +10,7 @@ const imageFiles = fs.readdirSync(path).filter((file) => {
 {
   imageFiles.map((imagefile, index) => {
     return (
-      <div class={`bg-image transition-all duration-[3s] ${index !== 0 ? "absolute top-0 w-full opacity-0" : ""}`}>
+      <div class={`bg-image duration-[3s] ${index !== 0 ? "absolute top-0 w-full opacity-0" : ""}`}>
         <BackgroundPicture
           src={`/${path}/${imagefile}`}
           tag="div"
