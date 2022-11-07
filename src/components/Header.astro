@@ -20,8 +20,18 @@ import LogoMS from "./LogoMS.astro";
 </header>
 <script>
   const navbar = document.querySelector("#navbar");
-  navbar.querySelector("#menu-button").addEventListener("click", () => {
+  const overlay = document.querySelector(".menu-overlay");
+  function toggleMenu() {
     navbar.querySelector("#menu").classList.toggle("-translate-y-full");
     navbar.querySelector("#menu ul").classList.toggle("opacity-0");
+    overlay.classList.toggle("hidden");
+    document.body.classList.toggle("overflow-hidden");
+  }
+  navbar.querySelector("#menu-button").addEventListener("click", () => {
+    toggleMenu();
+  });
+  overlay.addEventListener("click", () => {
+    (navbar.querySelector("#menu-button") as HTMLInputElement).checked = false;
+    toggleMenu();
   });
 </script>
