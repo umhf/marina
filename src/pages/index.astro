@@ -4,11 +4,31 @@ import BackgroundImage from "../components/BackgroundImage.astro";
 import Card from "../components/Card.astro";
 import { cards } from "../data/cards";
 import { Picture } from "astro-imagetools/components";
+import smartphone from "../images/icons/smartphone.svg";
+import photographer from "../images/icons/photographer.svg";
+import picture from "../images/icons/picture.svg";
+const fotoShootingContent = [
+  {
+    icon: smartphone,
+    headline: "Vor dem Shooting",
+    text: "Wir besprechen alles, was wichtig ist: dein Outfit, die Tageszeit, die Umgebung und Locations. Bei einem Pferdeshooting darfst du mir gerne Fotos und Videos von den Koppeln und Wunschlocations schicken.",
+  },
+  {
+    icon: photographer,
+    headline: "Am Shootingtag",
+    text: "Wir besichtigen zunächst gemeinsam die Location und lernen uns kennen. So kann ich auch in Ruhe dein Pferd oder Hund begrüßen und die erste Aufregung verfällt. Eine helfende Hand ist vor allem bei Pferden im Freien wichtig, den neugirierigen Blick in die gewünschte Richtung zu lenken.",
+  },
+  {
+    icon: picture,
+    headline: "Nach dem Shooting",
+    text: "Du erhälst einen Link zu deiner persönlichen Onlinegalerie. Hier kannst du dir in Ruhe deine Lieblingsbilder aussuchen, die anschließend von mir liebevoll und aufwendig bearbeitet werden.",
+  },
+];
 ---
 
 <Layout title="Home">
   <div class="-mx-4 max-w-screen-2xl 2xl:mx-auto relative">
-    <div class="absolute bottom-8 mx-4 md:mx-8 z-50">
+    <div class="absolute bottom-8 mx-4 md:mx-8 z-10">
       <h1 class="text-base text-xl lg:text-2xl text-white-50 font-serif m-0">Marina Schmid Fotografie</h1>
       <h2 class="text-5xl leading-none lg:text-7xl font-serif leading-tight text-white-50 mt-0 shadow-white">
         Momente für die Ewigkeit
@@ -21,33 +41,70 @@ import { Picture } from "astro-imagetools/components";
     </BackgroundImage>
   </div>
   <main class="container mx-auto">
-    <h1 class="text-center">Über mich</h1>
-    <div class="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center m-auto max-w-4xl md:space-x-8">
-      <div class="mb-6 border border-white-900 p-1 max-w-md sm:w-1/2">
-        <Picture
-          src="/src/images/marina-schmid.jpeg"
-          alt="Marina Schmid Portrait"
-          breakpoints={{ count: 8, minWidth: 340, maxWidth: 1350 }}
-          sizes="438px"
-        />
-      </div>
-      <div class="sm:flex-1 sm:max-w-[50%]">
-        <p class="text-center text-2xl mb-1 font-serif">Hi,</p>
-        <p class="lg:text-lg">
-          ich heiße Marina und bin eine professionelle Paar- und Familien- sowie Pferde- und Hundefotografin. Als
-          kreative Person, die die Natur liebt, fotografiere ich ausschließlich in der Natur. Fotografie mit Menschen
-          und Tiere sind meine wahre Leidenschaft. Schließlich habe ich diese Leidenschaft zu meinem Beruf gemacht –
-          dies möchte ich mit meinen Bildern zum Ausdruck bringen. Ich liebe ich es, bleibende Erinnerungen durch
-          Fotografie zu schaffen, die schönsten Momente festzuhalten. Momente für die Ewigkeit.
-        </p>
-        <div class="text-right mt-4">
-          <Picture src="/src/images/marina_signature.png" alt="Marina Schmid Logo" sizes="240px" />
+    <section>
+      <h1 class="text-center">Über mich</h1>
+      <div class="flex flex-col sm:flex-row sm:space-x-4 items-center justify-center m-auto max-w-4xl md:space-x-8">
+        <div class="mb-6 border border-white-900 p-1 max-w-md sm:w-1/2">
+          <Picture
+            src="/src/images/marina-schmid.jpeg"
+            alt="Marina Schmid Portrait"
+            breakpoints={{ count: 8, minWidth: 340, maxWidth: 1350 }}
+            sizes="438px"
+          />
+        </div>
+        <div class="sm:flex-1 sm:max-w-[50%]">
+          <p class="text-center text-2xl mb-1 font-serif">Hi,</p>
+          <p class="lg:text-lg">
+            ich heiße Marina und bin eine professionelle Paar- und Familien- sowie Pferde- und Hundefotografin. Als
+            kreative Person, die die Natur liebt, fotografiere ich ausschließlich in der Natur. Fotografie mit Menschen
+            und Tiere sind meine wahre Leidenschaft. Schließlich habe ich diese Leidenschaft zu meinem Beruf gemacht –
+            dies möchte ich mit meinen Bildern zum Ausdruck bringen. Ich liebe ich es, bleibende Erinnerungen durch
+            Fotografie zu schaffen, die schönsten Momente festzuhalten. Momente für die Ewigkeit.
+          </p>
+          <div class="text-right mt-4">
+            <Picture src="/src/images/marina_signature.png" alt="Marina Schmid Logo" sizes="240px" />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    <section>
+      <h1 class="text-center">Das Fotoshooting</h1>
 
-    <div class="mt-8 flex flex-col md:flex-row md:space-x-4">
-      {cards.map((card) => <Card headline={card.headline} text={card.text} ctaText={card.ctaText} link={card.link} />)}
-    </div>
+      <div class="mt-8 md:grid md:grid-flow-col md:gap-8">
+        {
+          fotoShootingContent.map((content, i, row) => (
+            <div class="grid grid-flow-col md:flex md:flex-col gap-4 items-start">
+              <div class="grid grid-rows-[auto_1fr] md:grid-cols-[auto_1fr] h-full md:h-auto md:w-full">
+                <div class="rounded-full bg-colored-300 w-16 h-16 flex">
+                  <img src={content.icon} alt="Smartphone Icon" class="m-auto" />
+                </div>
+                <div
+                  class={`${
+                    i + 1 !== row.length ? "md:-mr-8" : ""
+                  } grid grid-cols-2 md:grid-rows-2 md:grid-cols-1 divide-x divide-white-400 md:divide-x-0 md:divide-y `}
+                >
+                  <div />
+                  <div />
+                </div>
+              </div>
+              <div class={`${i + 1 !== row.length ? "mb-8 md:mb-0" : ""}`}>
+                <h2 class="m-0 text-xl">{content.headline}</h2>
+                <p>{content.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <section>
+      <h1 class="text-center">Mehr erfahren</h1>
+      <div class="mt-8 flex flex-col md:flex-row md:space-x-4">
+        {
+          cards.map((card) => (
+            <Card headline={card.headline} text={card.text} ctaText={card.ctaText} link={card.link} />
+          ))
+        }
+      </div>
+    </section>
   </main>
 </Layout>
