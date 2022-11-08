@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Picture } from "astro-imagetools/components";
+import Hero from "../components/Hero.astro";
+
+export async function getStaticPaths() {
+  const stories = await Astro.glob("../stories/*.md");
+  return stories.map((story) => ({
+    params: {
+      slug: story.frontmatter.title.toLowerCase().replaceAll(" ", "-"),
+    },
+    props: {
+      story,
+    },
+  }));
+}
+const { Content, frontmatter } = Astro.props.story;
+const portfolioPath = "src/stories/images";
+---
+
+<Layout title={frontmatter.title}>
+  <Hero path="src/stories/images" imageFiles={frontmatter.titleImage} heading1={frontmatter.title} />
+
+  <article class="container mx-auto">
+    <div class="flex flex-wrap gap-4 my-8">
+      {
+        frontmatter.tags.map((tag) => (
+          <span class="text-xs px-4 py-2 bg-colored-900 text-white-50 rounded-full">{tag}</span>
+        ))
+      }
+    </div>
+    <div class="md:columns-2 xl:columns-3 gap-8">
+      <Content />
+    </div>
+    {
+      frontmatter.images.map((image) => (
+        <div class="mt-8 mb-8 border border-white-900 p-1">
+          <Picture
+            src={`/${portfolioPath}/${image}`}
+            alt={`${image
+              .replace(/\d{4}-/, "")
+              .replace(/\.\w{3}/, "")
+              .replace("_", " ")}`}
+            breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
+            sizes="100vw"
+          />
+        </div>
+      ))
+    }
+  </article>
+</Layout>
