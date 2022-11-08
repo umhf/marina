@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+const posts = await Astro.glob("../stories/*.md");
+---
+
+<Layout title="Stories">
+    <main class="container mx-auto mt-24">
+    <h1 class="text-center">Stories</h1>
+
+        <div class="container">
+          {
+            posts.map((post) => (
+                <h3>{post.frontmatter.title}</h3>
+                <div>
+                  {new Date(post.frontmatter.date).toLocaleDateString()}
+                </div>
+    
+                <p>{post.frontmatter.excerpt}</p>
+                <a class="btn" href={`/${post.frontmatter.title.toLowerCase().replaceAll(" ", "-")}`}>
+                  Read More
+                </a>
+            ))
+          }
+        </div>
+    </main>
+</Layout>
