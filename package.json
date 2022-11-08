@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^2.1.0",
     "@fontsource/inspiration": "^4.5.10",
+    "@fontsource/inter": "^4.5.14",
     "@fontsource/lora": "^4.5.12",
     "astro": "^1.5.3",
     "astro-compress": "^1.0.12",

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import BackgroundImage from "../components/BackgroundImage.astro";
+import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import { cards } from "../data/cards";
 import { Picture } from "astro-imagetools/components";
@@ -27,19 +27,7 @@ const fotoShootingContent = [
 ---
 
 <Layout title="Home">
-  <div class="-mx-4 max-w-screen-2xl 2xl:mx-auto relative">
-    <div class="absolute bottom-8 mx-4 md:mx-8 z-10">
-      <h1 class="text-base text-xl lg:text-2xl text-white-50 font-serif m-0">Marina Schmid Fotografie</h1>
-      <h2 class="text-5xl leading-none lg:text-7xl font-serif leading-tight text-white-50 mt-0 shadow-white">
-        Momente für die Ewigkeit
-      </h2>
-    </div>
-    <BackgroundImage>
-      <div class="h-full pt-20 pb-12 px-4 bg-gradient-to-b from-transparent via-transparent to-white-900/50">
-        <div class="container mx-auto flex flex-col justify-end h-96 min-h-[70vh]"></div>
-      </div>
-    </BackgroundImage>
-  </div>
+  <Hero path="src/images/backgrounds" heading1="Momente für die Ewigkeit" heading2="Marina Schmid Fotografie" />
   <main class="container mx-auto">
     <section>
       <h1 class="text-center">Über mich</h1>
@@ -53,7 +41,7 @@ const fotoShootingContent = [
           />
         </div>
         <div class="sm:flex-1 sm:max-w-[50%]">
-          <p class="text-center text-2xl mb-1 font-serif">Hi,</p>
+          <p class="text-center text-2xl mb-1 font-text">Hi,</p>
           <p class="lg:text-lg">
             ich heiße Marina und bin eine professionelle Paar- und Familien- sowie Pferde- und Hundefotografin. Als
             kreative Person, die die Natur liebt, fotografiere ich ausschließlich in der Natur. Fotografie mit Menschen
@@ -88,7 +76,7 @@ const fotoShootingContent = [
                 </div>
               </div>
               <div class={`${i + 1 !== row.length ? "mb-8 md:mb-0" : ""}`}>
-                <h2 class="m-0 text-xl">{content.headline}</h2>
+                <h2 class="m-0 mb-2 text-xl">{content.headline}</h2>
                 <p>{content.text}</p>
               </div>
             </div>

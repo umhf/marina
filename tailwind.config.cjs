@@ -9,8 +9,8 @@ module.exports = {
 		  }
 	},
 		fontFamily: {
-			'serif': ['Lora', 'ui-sans-serif'],
-			'heading': ['Inspiration'],
+			'text': ['Inter'],
+			'heading': ['Lora', 'ui-sans-serif'],
 		},
 		colors: {
 			transparent: 'transparent',
@@ -21,7 +21,7 @@ module.exports = {
 	},
 	plugins: [require('@tailwindcss/forms'),plugin(function({ addBase, theme, addComponents }) {
 		addBase({
-		  'h2': { marginBottom: theme("margin.2"), marginTop: theme("margin.4"), fontSize: theme('fontSize.2xl') },
+		  'h2': { marginBottom: theme("margin.2"), marginTop: theme("margin.4"), fontSize: theme('fontSize.2xl'), fontFamily: theme("fontFamily.heading") },
 		  'h1': { fontSize: theme('fontSize.4xl'), fontFamily: theme("fontFamily.heading"), marginTop: theme("margin.16"), marginBottom: theme("margin.8")},
 		  "html": { fontFamily: theme("fontFamily.serif"), color: theme("colors.white.800") }, 
 		  "p": {marginBottom: theme("margin.1")}
