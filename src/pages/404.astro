@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Picture } from "astro-imagetools/components";
+import Heading from "../components/Heading.astro";
 ---
 
 <!-- Überall title und description mitgeben -->
 <Layout title="404 Seite">
   <main id="404 Seite" class="mt-24 container mx-auto text-center">
-    <h1>Seite nicht gefunden</h1>
+    <Heading heading="Seite nicht gefunden" />
     <div class="max-w-sm mt-8 m-auto">
       <Picture
         src="/src/images/404.png"
