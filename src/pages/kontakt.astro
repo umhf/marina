@@ -2,11 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon";
 import instagram from "../images/icons/instagram.svg";
+import Heading from "../components/Heading.astro";
 ---
 
 <Layout title="Kontakt">
   <main class="mt-24 container mx-auto max-w-3xl">
-    <h1 class="text-center">Kontakt</h1>
+    <Heading heading="Kontakt" />
     <p>
       Du hast Interesse an eine meiner Leistungen oder möchtest mehr Erfahren? Schreibe mir einfach per Whatsapp,
       Instagram, Email oder Kontaktformular. Ich freue mich auf deine Nachricht.
@@ -69,7 +70,7 @@ import instagram from "../images/icons/instagram.svg";
         <div class="send-wrapper">
           <button
             type="submit"
-            class="send-btn bg-colored-900 w-full text-white-50 bold px-8 py-3 rounded text-l active:bg-colored-800 transition-all flex justify-center items-center"
+            class="send-btn bg-colored-900 w-full text-white-50 bold px-8 py-3 rounded text-l active:bg-colored-800 hover:bg-colored-700 transition-all flex justify-center items-center"
             ><span>Nachricht versenden</span>
             <div class="spinner hidden flex items-center justify-center">
               <div class="w-6 h-6 border-b-2 border-white-50 rounded-full animate-spin"></div>
