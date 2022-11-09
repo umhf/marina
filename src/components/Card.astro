@@ -1,15 +1,19 @@
 ---
-import BackgroundPicture from "./BackgroundImage.astro";
-import ButtonPrimary from "./ButtonPrimary.astro";
-const { headline, text, ctaText, link } = Astro.props;
+import { Picture } from "astro-imagetools/components";
+const { imagePath, image, link } = Astro.props;
 ---
 
-<div class="text-colored-900 bg-colored-50 mt-4 md:mt-0 p-4 flex flex-col md:w-1/3">
-  <h2 class="text-xl">{headline}</h2>
-  <p class="mb-4">
-    {text}
-  </p>
-  <div class="mt-auto">
-    <ButtonPrimary text={ctaText} link={link} />
+<a href={link} class="mb-8 md:mb-0 flex flex-col bg-colored-50 text-colored-900 hover:bg-colored-100 transition-colors">
+  <Picture
+    src={`${imagePath}/${image[0]}`}
+    alt={`${image[0]
+      .replace(/\d{4}-/, "")
+      .replace(/\.\w{3}/, "")
+      .replace("_", " ")}`}
+    breakpoints={{ count: 8, minWidth: 350, maxWidth: 1920 }}
+    sizes="(min-width: 768px) 50vw, (min-width: 1024px) 33vw, 100vw"
+  />
+  <div class="p-4 flex flex-col justify-between h-full">
+    <slot />
   </div>
-</div>
+</a>

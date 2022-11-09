@@ -1,26 +1,43 @@
 ---
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
-const posts = await Astro.glob("../stories/*.md");
+const stories = await Astro.glob("../stories/*.md");
+import Heading from "../components/Heading.astro";
 ---
 
 <Layout title="Stories">
-    <main class="container mx-auto mt-24">
-    <h1 class="text-center">Stories</h1>
+  <main class="container mx-auto mt-24">
+    <Heading heading="Stories" />
+    <div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
+      {
+        stories.map((story) => (
+          <Card
+            link={`/stories/${story.frontmatter.title.toLowerCase().replaceAll(" ", "-")}`}
+            imagePath="/src/stories/images"
+            image={story.frontmatter.titleImage}
+          >
+            <div>
+              <div class="font-heading text-sm flex justify-between">
+                <div class="mr-1">{`${story.frontmatter.location}`}</div>
+                <div class="ml-1">{`${new Date(story.frontmatter.startDate).toLocaleDateString()} ${
+                  story.frontmatter.endDate ? `- ${new Date(story.frontmatter.endDate).toLocaleDateString()}` : ""
+                }`}</div>
+              </div>
+              <div class="flex flex-wrap gap-2 my-2">
+                {story.frontmatter.tags.map((tag) => (
+                  <span class="text-xs px-4 py-2 bg-colored-800 text-white-50 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 class="text-xl">{story.frontmatter.title}</h2>
+              <p class="mb-4">{story.frontmatter.excerpt}</p>
 
-        <div class="container">
-          {
-            posts.map((post) => (
-                <h3>{post.frontmatter.title}</h3>
-                <div>
-                  {new Date(post.frontmatter.date).toLocaleDateString()}
-                </div>
-    
-                <p>{post.frontmatter.excerpt}</p>
-                <a class="btn" href={`/${post.frontmatter.title.toLowerCase().replaceAll(" ", "-")}`}>
-                  Read More
-                </a>
-            ))
-          }
-        </div>
-    </main>
+              <p class="text-right">weiterlesen</p>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </main>
 </Layout>

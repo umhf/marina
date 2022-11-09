@@ -16,7 +16,7 @@ const pathname = new URL(Astro.request.url).pathname.slice(1).replaceAll("/", ""
         <li>
           <a
             class={`${
-              pathname === menuItem.toLowerCase() || (pathname === "" && menuItem.toLowerCase() === "home")
+              pathname.includes(menuItem.toLowerCase()) || (pathname === "" && menuItem.toLowerCase() === "home")
                 ? "bg-colored-200 md:bg-transparent md:border-colored-700"
                 : "md:border-transparent"
             } p-3.5 block md:py-0 md:px-4 md:border-b-2 hover:text-colored-900 transition-colors`}
