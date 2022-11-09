@@ -19,7 +19,9 @@ const { Content, frontmatter } = Astro.props.story;
 const imagePath = "src/stories/images";
 const datePlace = `${frontmatter.location} ${frontmatter.endDate ? "vom" : "am"} ${new Date(
   frontmatter.startDate
-).toLocaleDateString()} ${frontmatter.endDate ? `bis ${new Date(frontmatter.endDate).toLocaleDateString()}` : ""}`;
+).toLocaleDateString("de-DE")} ${
+  frontmatter.endDate ? `bis ${new Date(frontmatter.endDate).toLocaleDateString("de-DE")}` : ""
+}`;
 ---
 
 <Layout title={frontmatter.title}>
