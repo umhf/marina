@@ -3,7 +3,11 @@ import { Picture } from "astro-imagetools/components";
 const { imagePath, image, link } = Astro.props;
 ---
 
-<a href={link} class="mb-8 md:mb-0 flex flex-col bg-colored-50 text-colored-900 hover:bg-colored-100 transition-colors">
+<a
+  rel="prefetch"
+  href={link}
+  class="mb-8 md:mb-0 flex flex-col bg-colored-50 text-colored-900 hover:bg-colored-100 transition-colors"
+>
   <Picture
     src={`${imagePath}/${image[0]}`}
     alt={`${image[0]

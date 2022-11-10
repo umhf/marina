@@ -14,6 +14,9 @@ import critters from "astro-critters";
 import purgecss from "astro-purgecss";
 
 // https://astro.build/config
+import prefetch from "@astrojs/prefetch";
+
+// https://astro.build/config
 export default defineConfig({
   vite: {
     build: {
@@ -26,5 +29,5 @@ export default defineConfig({
       }
     }
   },
-  integrations: [astroImageTools, tailwind(), critters(), purgecss()/* TODO compress() wieder einfügen */]
+  integrations: [astroImageTools, tailwind(), critters(), purgecss() /* TODO compress() wieder einfügen */, prefetch()]
 });

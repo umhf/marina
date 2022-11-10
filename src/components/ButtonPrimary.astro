@@ -3,6 +3,7 @@ const { text, link } = Astro.props;
 ---
 
 <a
+  rel="prefetch"
   href={link}
   aria-label={text}
   class="max-w-xl mx-auto hover:bg-colored-700 transition-colors bg-colored-900 w-full text-white-50 bold px-8 py-3 rounded text-l active:bg-colored-800 transition-all flex justify-center items-center"
