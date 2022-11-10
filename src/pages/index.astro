@@ -13,16 +13,20 @@ const fotoShootingContent = [
   {
     icon: smartphone,
     headline: "Vor dem Shooting",
+    alt: "Smartphone Icon",
+    h: "h-12",
     text: "Wir besprechen alles, was wichtig ist: dein Outfit, die Tageszeit, die Umgebung und Locations. Bei einem Pferdeshooting darfst du mir gerne Fotos und Videos von den Koppeln und Wunschlocations schicken.",
   },
   {
     icon: photographer,
     headline: "Am Shootingtag",
+    alt: "Fotograf Icon",
     text: "Wir besichtigen zunächst gemeinsam die Location und lernen uns kennen. So kann ich auch in Ruhe dein Pferd oder Hund begrüßen und die erste Aufregung verfällt. Eine helfende Hand ist vor allem bei Pferden im Freien wichtig, den neugirierigen Blick in die gewünschte Richtung zu lenken.",
   },
   {
     icon: picture,
     headline: "Nach dem Shooting",
+    alt: "Bild Icon",
     text: "Du erhälst einen Link zu deiner persönlichen Onlinegalerie. Hier kannst du dir in Ruhe deine Lieblingsbilder aussuchen, die anschließend von mir liebevoll und aufwendig bearbeitet werden.",
   },
 ];
@@ -66,7 +70,13 @@ const fotoShootingContent = [
             <div class="grid grid-flow-col md:flex md:flex-col gap-4 items-start">
               <div class="grid grid-rows-[auto_1fr] md:grid-cols-[auto_1fr] h-full md:h-auto md:w-full">
                 <div class="rounded-full bg-colored-300 w-16 h-16 flex">
-                  <img src={content.icon} alt="Smartphone Icon" height="64" class="m-auto" />
+                  <img
+                    src={content.icon}
+                    alt={content.alt}
+                    height="64"
+                    width="64"
+                    class={`w-auto m-auto ${content.h ? content.h : "h-16"}`}
+                  />
                 </div>
                 <div
                   class={`${
