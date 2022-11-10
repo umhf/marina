@@ -17,6 +17,9 @@ import purgecss from "astro-purgecss";
 import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
 export default defineConfig({
   vite: {
     build: {
@@ -29,5 +32,6 @@ export default defineConfig({
       }
     }
   },
-  integrations: [astroImageTools, tailwind(), critters(), purgecss() /* TODO compress() wieder einfügen */, prefetch()]
+  site: "https://marina-schmid.com",
+  integrations: [astroImageTools, tailwind(), critters(), purgecss(), prefetch(), sitemap()]
 });
