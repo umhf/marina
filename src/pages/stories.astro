@@ -3,6 +3,7 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 const stories = await Astro.glob("../stories/*.md");
 import Heading from "../components/Heading.astro";
+stories.sort((a, b) => (new Date(b.frontmatter.startDate) as any) - (new Date(a.frontmatter.startDate) as any));
 ---
 
 <Layout title="Stories">
