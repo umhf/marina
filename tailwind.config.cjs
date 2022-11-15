@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	safelist: ["text-colored-50", "bg-colored-500"],
 	theme: {
 		extend: {zIndex: {
 			'lowest': '-1',
