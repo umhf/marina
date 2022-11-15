@@ -4,34 +4,55 @@ import { Picture } from "astro-imagetools/components";
 import fs from "fs";
 import ButtonPrimary from "../components/ButtonPrimary.astro";
 import Heading from "../components/Heading.astro";
+import Tabs from "../components/Tabs.astro";
 const portfolioPath = "src/images/portfolio";
 const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
   return /.png|.jpg|.jpeg/.test(file);
 });
+const hunde = [],
+  pferde = [],
+  familie = [];
+imageFiles.forEach((imageFile) => {
+  imageFile.includes("hund") && hunde.push(imageFile);
+  imageFile.includes("pferd") && pferde.push(imageFile);
+  imageFile.includes("familie") && familie.push(imageFile);
+});
+const adjustedFiles = [familie, pferde, hunde];
+console.log(adjustedFiles);
 ---
 
 <Layout title="Portfolio">
   <main class="container mx-auto mt-24">
     <Heading heading="Portfolio" />
-    <div class="columns-1 md:columns-2 gap-8">
+    <Tabs
+      headings={[
+        { art: "Familien und Paare", icon: "noto:family-man-woman-girl" },
+        { art: "Pferde", icon: "noto:horse" },
+        { art: "Hunde", icon: "noto:dog" },
+      ]}
+    >
       {
-        imageFiles.map((imagefile) => {
-          return (
-            <div class="mb-8 border border-white-900 p-1">
-              <Picture
-                src={`/${portfolioPath}/${imagefile}`}
-                alt={`${imagefile
-                  .replace(/\d{4}-/, "")
-                  .replace(/\.\w{3}/, "")
-                  .replace("_", " ")}`}
-                breakpoints={{ count: 8, minWidth: 320, maxWidth: 1920 }}
-                sizes="(min-width: 768px) 50vw, 100vw"
-              />
-            </div>
-          );
-        })
+        adjustedFiles.map((files) => (
+          <div class="columns-1 md:columns-2 gap-8">
+            {files.map((imagefile) => {
+              return (
+                <div class="mb-8 border border-white-900 p-1">
+                  <Picture
+                    src={`/${portfolioPath}/${imagefile}`}
+                    alt={`${imagefile
+                      .replace(/-\d{4}/, "")
+                      .replace(/\.\w{3}/, "")
+                      .replace("_", " ")}`}
+                    breakpoints={{ count: 8, minWidth: 320, maxWidth: 1920 }}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        ))
       }
-    </div>
+    </Tabs>
     <div class="mt-16">
       <ButtonPrimary text="Erfahre die Story hinter den Bildern" link="/stories" />
     </div>
