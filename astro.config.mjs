@@ -33,6 +33,6 @@ export default defineConfig({
     }
   },
   site: "https://marina-schmid.com",
-  integrations: [astroImageTools, tailwind(), critters(), purgecss(), prefetch(), sitemap()]
+  integrations: [astroImageTools, tailwind(), critters(), purgecss({safelist: ["text-colored-50", "bg-colored-500"]}), prefetch(), sitemap()]
 });
 /* TODO: Compress fehlt noch */
