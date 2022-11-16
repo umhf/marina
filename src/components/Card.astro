@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro-imagetools/components";
 const { imagePath, image, link } = Astro.props;
-console.log(`${imagePath}/${image[0]}`);
+console.log(imagePath, image, link);
 ---
 
 <a
@@ -10,7 +10,7 @@ console.log(`${imagePath}/${image[0]}`);
   class="mb-8 md:mb-0 flex flex-col bg-colored-50 text-colored-900 hover:bg-colored-100 transition-colors"
 >
   <Picture
-    src={`${imagePath}/${image[0]}`}
+    src={`/${imagePath}/${image[0]}`}
     alt={`${image[0]
       .replace(/\d{4}-/, "")
       .replace(/\.\w{3}/, "")
