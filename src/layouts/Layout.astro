@@ -23,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
         basic: {
           title: "Marina Schmid Fotografie",
           type: "website",
-          image: "src/images/backgrounds/2_pferd.jpg",
+          image: `${canonicalURL.href}hund.jpg`,
           url: `${canonicalURL.href}`,
         },
         optional: {
