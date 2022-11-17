@@ -19,6 +19,21 @@ const canonicalURL = new URL(Astro.url.pathname, import.meta.env.PUBLIC_DOMAIN);
       title={`${title} | Marina Schmid Fotografie aus Peiting`}
       description={description}
       canonical={canonicalURL.href}
+      openGraph={{
+        basic: {
+          title: "Marina Schmid Fotografie",
+          type: "website",
+          image: "src/images/backgrounds/2_pferd.jpg",
+          url: `${canonicalURL.href}`,
+        },
+        optional: {
+          description: `${description}`,
+          locale: "de_DE",
+        },
+        image: {
+          alt: "Ein wunderschöner Hund",
+        },
+      }}
       extend={{
         link: [{ rel: "icon", href: "/favicon.svg" }],
         meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
