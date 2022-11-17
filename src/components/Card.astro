@@ -14,7 +14,8 @@ console.log(imagePath, image, link);
     alt={`${image[0]
       .replace(/\d{4}-/, "")
       .replace(/\.\w{3}/, "")
-      .replace("_", " ")}`}
+      .replaceAll("_", " ")
+      .replaceAll("-", " ")}`}
     breakpoints={{ count: 8, minWidth: 350, maxWidth: 1920 }}
     sizes="(min-width: 768px) 50vw, (min-width: 1024px) 33vw, 100vw"
   />

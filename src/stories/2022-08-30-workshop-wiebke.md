@@ -1,6 +1,6 @@
 ---
 title: Worshop Pferdefotografie mit Wiebke Haas
-excerpt: Ich hatte im Herbst ein Hochzeitsfotoshooting mit Anita und Daniel mit ihren Pferden.
+excerpt: Ende August ging es für mich in den Hohen Norden, genauer Nähe Wismar an der Ostsee.
 startDate: 2022-08-30
 endDate: 2022-08-31
 location: Wismar (Ostsee)

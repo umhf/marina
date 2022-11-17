@@ -52,21 +52,24 @@ const imageFiles = fs.readdirSync(imagePath).filter((file) => {
           <Content />
         </div>
       </div>
-      {
-        imageFiles.map((image) => (
-          <div class="mt-8 mb-8 border border-white-900 p-1">
-            <Picture
-              src={`/${imagePath}/${image}`}
-              alt={`${image
-                .replace(/\d{4}-/, "")
-                .replace(/\.\w{3}/, "")
-                .replace("_", " ")}`}
-              breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
-              sizes="100vw"
-            />
-          </div>
-        ))
-      }
+      <div class="mt-8 columns-1 xl:columns-2 gap-8">
+        {
+          imageFiles.map((image) => (
+            <div class="mb-8 border border-white-900 p-1">
+              <Picture
+                src={`/${imagePath}/${image}`}
+                alt={`${image
+                  .replace(/\d{4}-/, "")
+                  .replace(/\.\w{3}/, "")
+                  .replaceAll("_", " ")
+                  .replaceAll("-", " ")}`}
+                breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
+                sizes="100vw"
+              />
+            </div>
+          ))
+        }
+      </div>
     </article>
     <div class="flex flex-col items-center mt-16">
       <a rel="prefetch" class="py-4 mb-2" href="/stories">zurück zur Übersicht</a>
