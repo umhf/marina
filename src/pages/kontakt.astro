@@ -33,7 +33,12 @@ import Heading from "../components/Heading.astro";
       </div>
       <div class="text-center mt-8 text-xs md:hidden">oder</div>
 
-      <form class="w-full" method="POST" data-netlify="true" name="Contact">
+      <form class="w-full" method="POST" data-netlify="true" name="Contact" netlify-honeypot="gotya">
+        <p class="hidden">
+          <label>
+            Yap, my friend, got you <input name="gotya" />
+          </label>
+        </p>
         <div class="flex flex-wrap">
           <div class="w-full">
             <label class="block uppercase tracking-wide text-white-900 text-xs mb-2" for="name"> Name</label>
