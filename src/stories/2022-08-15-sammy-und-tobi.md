@@ -1,6 +1,6 @@
 ---
 title: Who let the Dog out - Sammy und Tobi
-excerpt: Ein schöner Nachmittag: ein toller Hund und sein nettes Herrchen versüßten mir den Tag.
+excerpt: Ein schöner Nachmittag - ein toller Hund und sein nettes Herrchen versüßten mir den Tag.
 startDate: 2022-08-15
 endDate:
 location: Peiting
