@@ -5,6 +5,7 @@ import fs from "fs";
 import ButtonPrimary from "../components/ButtonPrimary.astro";
 import Heading from "../components/Heading.astro";
 import Tabs from "../components/Tabs.astro";
+import CldImage from "../components/CldImage.astro";
 const portfolioPath = "src/images/portfolio";
 const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
   return /.png|.jpg|.jpeg/.test(file);
@@ -36,15 +37,15 @@ const adjustedFiles = [familie, pferde, hunde];
             {files.map((imagefile) => {
               return (
                 <div class="mb-8 border border-white-900 p-1">
-                  <Picture
+                  <CldImage
                     src={`/${portfolioPath}/${imagefile}`}
                     alt={`${imagefile
                       .replace(/-\d{4}/, "")
                       .replace(/\.\w{3}/, "")
                       .replaceAll("_", " ")
                       .replaceAll("-", " ")}`}
-                    breakpoints={{ count: 8, minWidth: 320, maxWidth: 1920 }}
-                    sizes="(min-width: 768px) 50vw, 100vw"
+                    width="1920"
+                    height="1277"
                   />
                 </div>
               );
