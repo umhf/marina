@@ -6,7 +6,7 @@ export const cards = [
       link: "/portfolio"
     },
     {
-      headline: "Meine Stories",
+      headline: "Eure Stories",
       text: `Jedes Shooting ist einzigartig und so individuell wie die Menschen und Tiere auf den Bildern. Schau rein und lass Dich inspirieren. Von dem, was ich mit meinen Kunden erleben durfte.`,
       ctaText: "Eure Stories",
       link: "/stories"
