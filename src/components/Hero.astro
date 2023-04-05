@@ -33,6 +33,7 @@ const imageFiles =
             tag="div"
             breakpoints={{ count: 8, minWidth: 320, maxWidth: 3840 }}
             loading="eager"
+            format={["jpg", "webp"]}
             sizes={(breakpoints) => {
               const maxWidth = breakpoints[breakpoints.length - 1];
               return `(min-width: ${maxWidth}px) ${maxWidth}px, 100vw`;
