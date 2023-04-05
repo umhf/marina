@@ -65,6 +65,7 @@ const imageFiles = fs.readdirSync(imagePath).filter((file) => {
                   .replaceAll("-", " ")}`}
                 breakpoints={{ count: 5, minWidth: 320, maxWidth: 3840 }}
                 sizes="100vw"
+                format={["jpg", "webp"]}
               />
             </div>
           ))

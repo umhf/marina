@@ -45,6 +45,7 @@ const fotoShootingContent = [
             alt="Marina Schmid Portrait"
             breakpoints={{ count: 3, minWidth: 340, maxWidth: 1350 }}
             sizes="(min-width: 640px) 50vw, 100vw"
+            format={["jpg", "webp"]}
           />
         </div>
         <div class="sm:flex-1 sm:max-w-[50%]">
@@ -57,7 +58,12 @@ const fotoShootingContent = [
             zu schaffen. Die schönsten Momente festzuhalten. Momente für die Ewigkeit.
           </p>
           <div class="text-right mt-4">
-            <Picture src="/src/images/marina_signature.png" alt="Marina Schmid Logo" sizes="240px" />
+            <Picture
+              src="/src/images/marina_signature.png"
+              alt="Marina Schmid Logo"
+              sizes="240px"
+              format={["jpg", "webp"]}
+            />
           </div>
         </div>
       </div>
