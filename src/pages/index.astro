@@ -75,7 +75,7 @@ const fotoShootingContent = [
                     alt={content.alt}
                     height="64"
                     width="64"
-                    class={`w-auto m-auto ${content.h ? content.h : ""}`}
+                    class={`w-auto m-auto ${typeof content.h === "undefined" || content.h}`}
                   />
                 </div>
                 <div
