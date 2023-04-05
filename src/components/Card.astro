@@ -17,7 +17,7 @@ const { imagePath, image, link } = Astro.props;
       .replaceAll("-", " ")}`}
     breakpoints={{ count: 8, minWidth: 350, maxWidth: 1920 }}
     sizes="(min-width: 768px) 50vw, (min-width: 1024px) 33vw, 100vw"
-    format={["jpg", "webp"]}
+    format={["webp", "jpg"]}
   />
   <div class="p-4 flex flex-col h-full">
     <slot />
