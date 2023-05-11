@@ -18,6 +18,30 @@ imageFiles.forEach((imageFile) => {
   imageFile.includes("familie") && familie.push(imageFile);
 });
 const adjustedFiles = [familie, pferde, hunde];
+
+import cloudinary from "cloudinary";
+const cloud_name = "dscuv3gae";
+cloudinary.v2.config({
+  cloud_name,
+  api_key: "861211695759826",
+  api_secret: "OOeD4tJjW3CIuhrjYzH04GBUrFY",
+});
+/* cloudinary.v2.api.resources().then((result) => console.log(result)); */
+var images;
+await cloudinary.v2.api
+  .resources({ type: "upload", prefix: "website-portfolio/familien-und-paare", max_results: 50, context: true })
+  .then((result) => {
+    //console.log(result);
+    images = result.resources;
+
+    // Process the list of images as needed
+    //console.log(images);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+console.log(images);
+// TODO: Lazyloading!
 ---
 
 <Layout title="Portfolio">
@@ -30,7 +54,28 @@ const adjustedFiles = [familie, pferde, hunde];
         { art: "Hunde", icon: "noto:dog" },
       ]}
     >
-      {
+      <div class="columns-1 xl:columns-2 gap-8">
+        {
+          images.map((image) => (
+            <div class="mb-8 border border-white-900 p-1">
+              <img
+                sizes="(min-width:768px) 50vw, 100vw"
+                srcset={`
+                  https://res.cloudinary.com/${cloud_name}/image/upload/w_256,dpr_auto/${image.public_id}.avif 256w,
+                  https://res.cloudinary.com/${cloud_name}/image/upload/w_512,dpr_auto/${image.public_id}.avif 512w,
+                  https://res.cloudinary.com/${cloud_name}/image/upload/w_768,dpr_auto/${image.public_id}.avif 768w,
+                  https://res.cloudinary.com/${cloud_name}/image/upload/w_1024,dpr_auto/${image.public_id}.avif 1024w,
+                  https://res.cloudinary.com/${cloud_name}/image/upload/w_1280,dpr_auto/${image.public_id}.avif 1280w
+                `}
+                src={`https://res.cloudinary.com/${cloud_name}/image/upload/w_1280,dpr_auto/${image.public_id}.avif`}
+                alt="hallo"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- {
         adjustedFiles.map((files) => (
           <div class="columns-1 xl:columns-2 gap-8">
             {files.map((imagefile) => {
@@ -52,7 +97,7 @@ const adjustedFiles = [familie, pferde, hunde];
             })}
           </div>
         ))
-      }
+      } -->
     </Tabs>
     <div class="mt-16">
       <ButtonPrimary text="Erfahre die Story hinter den Bildern" link="/stories" />
