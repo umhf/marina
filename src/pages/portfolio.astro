@@ -1,23 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Picture } from "astro-imagetools/components";
-import fs from "fs";
 import ButtonPrimary from "../components/ButtonPrimary.astro";
 import Heading from "../components/Heading.astro";
 import Tabs from "../components/Tabs.astro";
-const portfolioPath = "src/images/portfolio";
-const imageFiles = fs.readdirSync(portfolioPath).filter((file) => {
-  return /.png|.jpg|.jpeg/.test(file);
-});
-const hunde = [],
-  pferde = [],
-  familie = [];
-imageFiles.forEach((imageFile) => {
-  imageFile.includes("hund") && hunde.push(imageFile);
-  imageFile.includes("pferd") && pferde.push(imageFile);
-  imageFile.includes("familie") && familie.push(imageFile);
-});
-const adjustedFiles = [familie, pferde, hunde];
 
 import cloudinary from "cloudinary";
 const cloud_name = "dscuv3gae";
@@ -26,21 +11,26 @@ cloudinary.v2.config({
   api_key: "861211695759826",
   api_secret: "OOeD4tJjW3CIuhrjYzH04GBUrFY",
 });
-/* cloudinary.v2.api.resources().then((result) => console.log(result)); */
-var images;
-await cloudinary.v2.api
-  .resources({ type: "upload", prefix: "website-portfolio/familien-und-paare", max_results: 50, context: true })
-  .then((result) => {
-    //console.log(result);
-    images = result.resources;
 
-    // Process the list of images as needed
-    //console.log(images);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
+const portfolio = ["family-and-couples","horses","dogs"];
+
+var images = {};
+var promises = {};
+portfolio.forEach(item => {
+    promises[item] = new Promise((resolve, reject) => {
+      cloudinary.v2.api
+        .resources({ type: "upload", prefix: `website-portfolio/${item}`, max_results: 50 })
+        .then((result) => {
+          images[item] = result.resources;
+          resolve(`Received ${item}`)
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
   });
-console.log(images);
+})
+await Promise.all([promises["family-and-couples"], promises.horses, promises.dogs]);
+const breakpoints = [256,512,768,1024,1280]
 // TODO: Lazyloading!
 ---
 
@@ -54,50 +44,28 @@ console.log(images);
         { art: "Hunde", icon: "noto:dog" },
       ]}
     >
-      <div class="columns-1 xl:columns-2 gap-8">
-        {
-          images.map((image) => (
-            <div class="mb-8 border border-white-900 p-1">
-              <img
-                sizes="(min-width:768px) 50vw, 100vw"
-                srcset={`
-                  https://res.cloudinary.com/${cloud_name}/image/upload/w_256,dpr_auto/${image.public_id}.avif 256w,
-                  https://res.cloudinary.com/${cloud_name}/image/upload/w_512,dpr_auto/${image.public_id}.avif 512w,
-                  https://res.cloudinary.com/${cloud_name}/image/upload/w_768,dpr_auto/${image.public_id}.avif 768w,
-                  https://res.cloudinary.com/${cloud_name}/image/upload/w_1024,dpr_auto/${image.public_id}.avif 1024w,
-                  https://res.cloudinary.com/${cloud_name}/image/upload/w_1280,dpr_auto/${image.public_id}.avif 1280w
-                `}
-                src={`https://res.cloudinary.com/${cloud_name}/image/upload/w_1280,dpr_auto/${image.public_id}.avif`}
-                alt="hallo"
-              />
-            </div>
-          ))
-        }
-      </div>
-
-      <!-- {
-        adjustedFiles.map((files) => (
+    {
+      portfolio.map(key => (
           <div class="columns-1 xl:columns-2 gap-8">
-            {files.map((imagefile) => {
-              return (
+            {
+              images[key].map((image) => (
                 <div class="mb-8 border border-white-900 p-1">
-                  <Picture
-                    src={`/${portfolioPath}/${imagefile}`}
-                    alt={`${imagefile
-                      .replace(/-\d{4}/, "")
-                      .replace(/\.\w{3}/, "")
-                      .replaceAll("_", " ")
-                      .replaceAll("-", " ")}`}
-                    breakpoints={{ count: 8, minWidth: 320, maxWidth: 1920 }}
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    format={["webp", "jpg"]}
+                  <img
+                    sizes="(min-width:768px) 50vw, 100vw"
+                    srcset={`
+                      ${breakpoints.map(breakpoint => `https://res.cloudinary.com/${cloud_name}/image/upload/w_${breakpoint},dpr_auto/${image.public_id}.avif ${breakpoint}w`)}
+                    `}
+                    src={`https://res.cloudinary.com/${cloud_name}/image/upload/w_1280,dpr_auto/${image.public_id}.avif`}
+                    alt="hallo"
                   />
                 </div>
-              );
-            })}
+              ))
+            }
+
           </div>
-        ))
-      } -->
+      ))
+    }
+
     </Tabs>
     <div class="mt-16">
       <ButtonPrimary text="Erfahre die Story hinter den Bildern" link="/stories" />
