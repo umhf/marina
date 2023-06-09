@@ -1,0 +1,20 @@
+---
+const { cloud_name, image, sizes, breakpoints, key } = Astro.props;
+const width = breakpoints.slice(-1)[0];
+const height = Math.floor(image.height / (image.width / width));
+---
+
+<img
+  sizes={sizes}
+  srcset={`
+    ${breakpoints.map(
+      (breakpoint) =>
+        `https://res.cloudinary.com/${cloud_name}/image/upload/w_${breakpoint},dpr_auto/${image.public_id}.avif ${breakpoint}w`
+    )}
+`}
+  src={`https://res.cloudinary.com/${cloud_name}/image/upload/w_1280,dpr_auto/${image.public_id}.avif`}
+  width={width}
+  height={height}
+  loading="lazy"
+  alt={key}
+/>
