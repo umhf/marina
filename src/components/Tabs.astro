@@ -29,11 +29,11 @@ const { headings } = Astro.props;
 
     function setTab(index) {
       if (current_tab_index > -1) {
-        tab_headers[current_tab_index].classList.remove("text-colored-50", "bg-colored-500");
+        tab_headers[current_tab_index].classList.remove("text-colored-50", "bg-colored-700");
         tab_headers[current_tab_index].classList.add("hover:bg-colored-100");
         tab_contents[current_tab_index].classList.add("hidden");
       }
-      tab_headers[index].classList.add("text-colored-50", "bg-colored-500");
+      tab_headers[index].classList.add("text-colored-50", "bg-colored-700");
       tab_headers[index].classList.remove("hover:bg-colored-100");
       tab_contents[index].classList.remove("hidden");
       current_tab_index = index;
