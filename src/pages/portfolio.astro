@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ButtonPrimary from "../components/ButtonPrimary.astro";
+import Heading from "../components/Heading.astro";
+import Tabs from "../components/Tabs.astro";
+
+import cloudinary from "cloudinary";
+import CloudinaryImage from "../components/CloudinaryImage.astro";
+const api_secret = import.meta.env.MODE === "production" ? process.env.CLOUDINARY_API_SECRET : import.meta.env.SECRET_CLOUDINARY_API;
+const cloud_name = "dscuv3gae";
+cloudinary.v2.config({
+  cloud_name,
+  api_key: "861211695759826",
+  api_secret,
+});
+
+const portfolio = ["family-and-couples", "horses", "dogs"];
+
+var images = {};
+var promises = {};
+portfolio.forEach(item => {
+  promises[item] = new Promise((resolve, reject) => {
+    cloudinary.v2.api
+      .resources({ type: "upload", prefix: `website-portfolio/${item}`, max_results: 50})
+      .then((result) => {
+        images[item] = result.resources;
+        images[item].alt = item;
+        resolve(`Received ${item}`);
+
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+});
+await Promise.all(Object.values(promises));
+const breakpoints = [256, 512, 768, 1024, 1280];
+---
+
+<Layout title="Portfolio">
+  <main class="container mx-auto mt-24">
+    <Heading heading="Portfolio" />
+    <Tabs
+      headings={[
+        { art: "Familien und Paare", icon: "noto:family-man-woman-girl" },
+        { art: "Pferde", icon: "noto:horse" },
+        { art: "Hunde", icon: "noto:dog" },
+      ]}
+    >
+      {
+        portfolio.map((key) => (
+          <div class="columns-1 xl:columns-2 gap-8">
+            {images[key].map((image) => (
+              <div class="mb-8 border border-white-900 p-1">
+                <CloudinaryImage
+                  {cloud_name}
+                  {image}
+                  sizes="(min-width:768px) 50vw, 100vw"
+                  {breakpoints}
+                  {key}
+                />
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </Tabs>
+    <div class="mt-16">
+      <ButtonPrimary text="Erfahre die Story hinter den Bildern" link="/stories" />
+    </div>
+  </main>
+</Layout>
